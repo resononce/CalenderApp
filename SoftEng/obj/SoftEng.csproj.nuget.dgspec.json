@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\staff.lopeze37\\Desktop\\SoftEng\\CalenderApp\\SoftEng\\SoftEng.csproj": {}
+    "C:\\Users\\Universe\\Documents\\CalenderApp\\SoftEng\\SoftEng.csproj": {}
   },
   "projects": {
-    "C:\\Users\\staff.lopeze37\\Desktop\\SoftEng\\CalenderApp\\SoftEng\\SoftEng.csproj": {
+    "C:\\Users\\Universe\\Documents\\CalenderApp\\SoftEng\\SoftEng.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\staff.lopeze37\\Desktop\\SoftEng\\CalenderApp\\SoftEng\\SoftEng.csproj",
+        "projectUniqueName": "C:\\Users\\Universe\\Documents\\CalenderApp\\SoftEng\\SoftEng.csproj",
         "projectName": "SoftEng",
-        "projectPath": "C:\\Users\\staff.lopeze37\\Desktop\\SoftEng\\CalenderApp\\SoftEng\\SoftEng.csproj",
-        "packagesPath": "C:\\Users\\staff.lopeze37\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\staff.lopeze37\\Desktop\\SoftEng\\CalenderApp\\SoftEng\\obj\\",
+        "projectPath": "C:\\Users\\Universe\\Documents\\CalenderApp\\SoftEng\\SoftEng.csproj",
+        "packagesPath": "C:\\Users\\Universe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Universe\\Documents\\CalenderApp\\SoftEng\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\staff.lopeze37\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Universe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -41,9 +41,9 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
-            "EntityFramework": {
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.3.0, )"
+              "version": "[3.0.0, )"
             }
           },
           "imports": [
