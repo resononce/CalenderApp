@@ -12,7 +12,7 @@ namespace SoftEng.DataAccess
 {
     public class Database
     {
-        private protected team7Context context;
+        private readonly team7Context context;
         public Database(team7Context context)
         {
             this.context = context;
