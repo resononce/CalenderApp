@@ -1,15 +1,20 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<script type="text/javascript" src="~/js/Register.js"></script>
 
 <div>
     <h1>Calendar Application</h1>
-    Username: <input type="text" id="usernameText" name="Username"/><br />
-    Password: <input type="text" id="passwordText" name="Password" /><br />
-    <input type="button" id="userLoginBtn" name="user" value="User Login" onclick="Validate()"/>
-    <input type="button" id="adminLoginBtn" name="admin" value="Admin Login" onclick="Validate()"/> <br />
-    <input type="button" id="registerBtn" name="register" value="Register" onclick="Validate()"/> <br />
+    Username: <input type="text" id="usernameText" name="Username" /><br />
+    Password: <input type="password" id="passwordText" name="Password" /><br />
+    Check to Register: <input type="checkbox" id="registerCheckbox" name="RegisterCheckbox" onchange="toggleRegisterLogin()" /> <br />
+    <div id="registerFields" class="hidden">
+        Re-enter Password: <input type="password" id="passwordTextAgain" name="PasswordAgain" /><br />
+        <input type="button" id="registerBtn" name="register" value="Register" /> <br />
+    </div>
+    <input type="button" id="userLoginBtn" name="user" value="User Login" onclick="Validate()" />
 </div>
+
 <script>
     function Validate() {
     $.ajax(
