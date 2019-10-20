@@ -1,37 +1,3 @@
-C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\appsettings.Development.json
-C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\appsettings.json
-C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
-C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.deps.json
-C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.runtimeconfig.json
-C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.runtimeconfig.dev.json
-C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.dll
-C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.pdb
-C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.Views.dll
-C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.Views.pdb
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.RazorAssemblyInfo.cache
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.RazorAssemblyInfo.cs
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.AssemblyInfoInputs.cache
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.AssemblyInfo.cs
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.TagHelpers.input.cache
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.TagHelpers.output.cache
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.RazorCoreGenerate.cache
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.cshtml.g.cs
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.cshtml.g.cs
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.cshtml.g.cs
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.RazorTargetAssemblyInfo.cache
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.RazorTargetAssemblyInfo.cs
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.Views.pdb
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.dll
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.pdb
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.csproj.CopyComplete
-C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\MySql.Data.Entity.EF6.dll
 C:\Users\Specimen\Documents\school\calandar project\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.deps.json
 C:\Users\Specimen\Documents\school\calandar project\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.runtimeconfig.json
 C:\Users\Specimen\Documents\school\calandar project\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.runtimeconfig.dev.json
@@ -64,3 +30,37 @@ C:\Users\Specimen\Documents\school\calandar project\CalenderApp\SoftEng\obj\Debu
 C:\Users\Specimen\Documents\school\calandar project\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.dll
 C:\Users\Specimen\Documents\school\calandar project\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.pdb
 C:\Users\Specimen\Documents\school\calandar project\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.csproj.CopyComplete
+C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.deps.json
+C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.runtimeconfig.json
+C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.runtimeconfig.dev.json
+C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.dll
+C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.pdb
+C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.Views.dll
+C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.Views.pdb
+C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\MySql.Data.Entity.EF6.dll
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.RazorAssemblyInfo.cache
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.RazorAssemblyInfo.cs
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.AssemblyInfoInputs.cache
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.AssemblyInfo.cs
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.TagHelpers.input.cache
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.TagHelpers.output.cache
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.RazorCoreGenerate.cache
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.cshtml.g.cs
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.cshtml.g.cs
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.RazorTargetAssemblyInfo.cache
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.RazorTargetAssemblyInfo.cs
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.Views.pdb
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.csproj.CopyComplete
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.dll
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.pdb
