@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SoftEng.DataAccess;
 using SoftEng.DataAccess.DataObjects;
 using SoftEng.Models;
 
@@ -11,10 +12,10 @@ namespace SoftEng.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly team7Context context;
+        private readonly Database db;
         public HomeController(team7Context context)
         {
-            this.context = context;
+            this.db = new Database(context);
         }
         public IActionResult Index()
         {
