@@ -232,3 +232,14 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+SoftEng/bin/Debug/netcoreapp2.1/SoftEng.deps.json
+
+SoftEng/bin/Debug/netcoreapp2.1/SoftEng.runtimeconfig.dev.json
+
+SoftEng/bin/Debug/netcoreapp2.1/SoftEng.Views.dll
+
+SoftEng/obj/Debug/netcoreapp2.1/Razor/Views/_ViewImports.cshtml.g.cs
+
+SoftEng/obj/Debug/netcoreapp2.1/Razor/Views/_ViewStart.cshtml.g.cs
+
+SoftEng/obj/Debug/netcoreapp2.1/Razor/Views/Home/About.cshtml.g.cs
