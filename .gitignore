@@ -245,3 +245,11 @@ SoftEng/obj/Debug/netcoreapp2.1/Razor/Views/_ViewStart.cshtml.g.cs
 SoftEng/obj/Debug/netcoreapp2.1/Razor/Views/Home/About.cshtml.g.cs
 
 *.dll
+
+SoftEng/obj/project.assets.json
+
+*.cache
+
+SoftEng/SoftEng.csproj
+
+SoftEng/obj/SoftEng.csproj.nuget.g.props

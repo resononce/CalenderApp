@@ -17,6 +17,27 @@ namespace SoftEng.Controllers
         {
             this.db = new Database(context);
         }
+
+        public ActionResult Validate(string username, string password)
+        {
+            var _user = db.GetUserByName(username);
+            if (_user != null)
+            {
+                if (_user.Phash == password)
+                {
+                    return Json(new { status = true, message = "Login Successfull!" });
+                }
+                else
+                {
+                    return Json(new { status = false, message = "Invalid Password!" });
+                }
+            }
+            else
+            {
+                return Json(new { status = false, message = "Invalid Email!" });
+            }
+        }
+
         public IActionResult Index()
         {
             return View();
