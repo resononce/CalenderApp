@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ChengXiong/Documents/UWOClasses/ComputerScience/Software Engineer I/Project/CalendarApp/SoftEng/SoftEng.csproj": {}
+    "C:\\Users\\Universe\\Documents\\CalenderApp\\SoftEng\\SoftEng.csproj": {}
   },
   "projects": {
-    "/Users/ChengXiong/Documents/UWOClasses/ComputerScience/Software Engineer I/Project/CalendarApp/SoftEng/SoftEng.csproj": {
+    "C:\\Users\\Universe\\Documents\\CalenderApp\\SoftEng\\SoftEng.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ChengXiong/Documents/UWOClasses/ComputerScience/Software Engineer I/Project/CalendarApp/SoftEng/SoftEng.csproj",
+        "projectUniqueName": "C:\\Users\\Universe\\Documents\\CalenderApp\\SoftEng\\SoftEng.csproj",
         "projectName": "SoftEng",
-        "projectPath": "/Users/ChengXiong/Documents/UWOClasses/ComputerScience/Software Engineer I/Project/CalendarApp/SoftEng/SoftEng.csproj",
-        "packagesPath": "/Users/ChengXiong/.nuget/packages/",
-        "outputPath": "/Users/ChengXiong/Documents/UWOClasses/ComputerScience/Software Engineer I/Project/CalendarApp/SoftEng/obj/",
+        "projectPath": "C:\\Users\\Universe\\Documents\\CalenderApp\\SoftEng\\SoftEng.csproj",
+        "packagesPath": "C:\\Users\\Universe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Universe\\Documents\\CalenderApp\\SoftEng\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/ChengXiong/.config/NuGet/NuGet.Config"
+          "C:\\Users\\Universe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,10 +41,6 @@
       "frameworks": {
         "netcoreapp2.1": {
           "dependencies": {
-            "EntityFramework": {
-              "target": "Package",
-              "version": "[6.3.0, )"
-            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -54,11 +52,29 @@
               "target": "Package",
               "version": "[2.1.2, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.1.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.11, )"
+            },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.18, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.18, )"
             }
           },
           "imports": [
@@ -71,7 +87,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

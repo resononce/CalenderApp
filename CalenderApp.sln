@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftEng", "SoftEng\SoftEng.csproj", "{51689478-F64D-4FBF-BC90-AADD0F5AB9C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftEng", "SoftEng\SoftEng.csproj", "{60E0F7CD-E0FC-49B4-A206-2B3A787F81DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{51689478-F64D-4FBF-BC90-AADD0F5AB9C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51689478-F64D-4FBF-BC90-AADD0F5AB9C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51689478-F64D-4FBF-BC90-AADD0F5AB9C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51689478-F64D-4FBF-BC90-AADD0F5AB9C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60E0F7CD-E0FC-49B4-A206-2B3A787F81DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60E0F7CD-E0FC-49B4-A206-2B3A787F81DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60E0F7CD-E0FC-49B4-A206-2B3A787F81DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60E0F7CD-E0FC-49B4-A206-2B3A787F81DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
