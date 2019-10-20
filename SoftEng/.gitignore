@@ -243,3 +243,5 @@ SoftEng/obj/Debug/netcoreapp2.1/Razor/Views/_ViewImports.cshtml.g.cs
 SoftEng/obj/Debug/netcoreapp2.1/Razor/Views/_ViewStart.cshtml.g.cs
 
 SoftEng/obj/Debug/netcoreapp2.1/Razor/Views/Home/About.cshtml.g.cs
+
+*.dll
