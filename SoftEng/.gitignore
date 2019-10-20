@@ -244,4 +244,12 @@ SoftEng/obj/Debug/netcoreapp2.1/Razor/Views/_ViewStart.cshtml.g.cs
 
 SoftEng/obj/Debug/netcoreapp2.1/Razor/Views/Home/About.cshtml.g.cs
 
+SoftEng/obj/project.assets.json
+SoftEng/obj/SoftEng.csproj.nuget.cache
+Softeng/obj/SoftEng.csproj.nuget.dgspec.json
+SoftEng/obj/SoftEng.csproj.nuget.g.props
+SoftEng/obj/Debug/netcoreapp2.1/SoftEng.csproj.FileListAbsolute.txt
+SoftEng/obj/Debug/netcoreapp2.1/SoftEng.Views.dll
+SoftEng/obj/Debug/netcoreapp2.1/SoftEng.Views.pdb
+
 *.dll
