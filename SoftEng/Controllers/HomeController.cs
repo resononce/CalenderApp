@@ -34,8 +34,13 @@ namespace SoftEng.Controllers
             }
             else
             {
-                return Json(new { status = false, message = "Invalid Email!" });
+                return Json(new { status = false, message = "Invalid Username!" });
             }
+        }
+
+        public IActionResult Main()
+        {
+            return View();
         }
 
         public IActionResult Index()

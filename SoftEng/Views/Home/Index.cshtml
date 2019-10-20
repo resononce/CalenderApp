@@ -10,29 +10,31 @@
     <input type="button" id="adminLoginBtn" name="admin" value="Admin Login" onclick="Validate()"/> <br />
     <input type="button" id="registerBtn" name="register" value="Register" onclick="Validate()"/> <br />
 </div>
-
-<script> 
-  function Validate() {
+<script>
+    function Validate() {
     $.ajax(
-    {
-      type: "POST",
-      url: '@Url.Action("Validate", "Home")',
-      data: {
-          username: $('#usernameText').val(),
-          password: $('#passwordText').val()
-      },
-      error: function (result) {
-        alert("There is a Problem, Try Again!");
-      },
-      success: function (result) {
-        console.log(result);
-        if (result.status == true) {
-          window.location.href = '@Url.Action("Index", "Home")';
-        }
-        else {
-          alert(result.message);
-        }
-      }
-    });
-  }
+        {
+            type: "POST",
+            url: '@Url.Action("Validate", "Home")',
+            data: {
+                username: $('#usernameText').val(),
+                password: $('#passwordText').val()
+            },
+            error: function (result) {
+                alert("There is a Problem, Try Again! ");
+            },
+            success: function (result) {
+                console.log(result);
+                if (result.status == true) {
+                    window.location.href = '@Url.Action("Main", "Home")';
+                }
+                else {
+                    alert(result.message);
+                }
+            }
+        });
+}
+
+
+
 </script>
