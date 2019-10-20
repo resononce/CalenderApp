@@ -64,3 +64,4 @@ C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.
 C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.csproj.CopyComplete
 C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.dll
 C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.pdb
+C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.csprojAssemblyReference.cache
