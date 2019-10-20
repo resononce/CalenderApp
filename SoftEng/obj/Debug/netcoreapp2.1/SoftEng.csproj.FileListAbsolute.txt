@@ -8,7 +8,6 @@ C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.
 C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.pdb
 C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.Views.dll
 C:\Users\Universe\Documents\CalenderApp\SoftEng\bin\Debug\netcoreapp2.1\SoftEng.Views.pdb
-C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.csprojAssemblyReference.cache
 C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.RazorAssemblyInfo.cache
 C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.RazorAssemblyInfo.cs
 C:\Users\Universe\Documents\CalenderApp\SoftEng\obj\Debug\netcoreapp2.1\SoftEng.AssemblyInfoInputs.cache
