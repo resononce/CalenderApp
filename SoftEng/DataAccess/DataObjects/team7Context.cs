@@ -15,14 +15,14 @@ namespace SoftEng.DataAccess.DataObjects
         {
         }
 
-        public virtual DbSet<Class> Class { get; set; }
-        public virtual DbSet<ClassDay> ClassDay { get; set; }
-        public virtual DbSet<CompareRequest> CompareRequest { get; set; }
-        public virtual DbSet<Day> Day { get; set; }
-        public virtual DbSet<Event> Event { get; set; }
-        public virtual DbSet<Recurrence> Recurrence { get; set; }
-        public virtual DbSet<Task> Task { get; set; }
-        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Class> Classes { get; set; }
+        public virtual DbSet<ClassDay> ClassDays { get; set; }
+        public virtual DbSet<CompareRequest> CompareRequests { get; set; }
+        public virtual DbSet<Day> Days { get; set; }
+        public virtual DbSet<Event> Events { get; set; }
+        public virtual DbSet<Recurrence> Recurrences { get; set; }
+        public virtual DbSet<Task> Tasks { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
