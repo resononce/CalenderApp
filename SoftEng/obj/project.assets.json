@@ -12522,27 +12522,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jotto\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Users\\ottoj11\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jotto\\Documents\\_Fall19\\CS341\\CalendarApp\\SoftEng\\SoftEng.csproj",
+      "projectUniqueName": "C:\\Users\\ottoj11\\Source\\Repos\\CalenderApp\\SoftEng\\SoftEng.csproj",
       "projectName": "SoftEng",
-      "projectPath": "C:\\Users\\jotto\\Documents\\_Fall19\\CS341\\CalendarApp\\SoftEng\\SoftEng.csproj",
-      "packagesPath": "C:\\Users\\jotto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jotto\\Documents\\_Fall19\\CS341\\CalendarApp\\SoftEng\\obj\\",
+      "projectPath": "C:\\Users\\ottoj11\\Source\\Repos\\CalenderApp\\SoftEng\\SoftEng.csproj",
+      "packagesPath": "C:\\Users\\ottoj11\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ottoj11\\Source\\Repos\\CalenderApp\\SoftEng\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\jotto\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\ottoj11\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -12581,7 +12578,7 @@
             "version": "[2.1.11, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
-            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers",
             "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.11, )"
