@@ -5,6 +5,7 @@
 <script>
     var url = '@Url.Action("Register", "Home")';
     var home = '@Url.Action("Main", "Home")';
+    var fullUrl = '@Url.Content("~")';
 </script>
 <div align="center">
     <h1>Calendar Application</h1>
@@ -18,31 +19,3 @@
     <input type="button" id="userLoginBtn" name="user" value="User Login" onclick="Validate()" />
 </div>
 
-<script>
-    function Validate() {
-    $.ajax(
-        {
-            type: "POST",
-            url: '@Url.Action("Validate", "Home")',
-            data: {
-                username: $('#usernameText').val(),
-                password: $('#passwordText').val()
-            },
-            error: function (result) {
-                alert("There is a Problem, Try Again! ");
-            },
-            success: function (result) {
-                console.log(result);
-                if (result.status == true) {
-                    window.location.href = '@Url.Action("Main", "Home")';
-                }
-                else {
-                    alert(result.message);
-                }
-            }
-        });
-}
-
-
-
-</script>

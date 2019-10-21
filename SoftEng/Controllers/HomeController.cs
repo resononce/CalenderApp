@@ -63,10 +63,7 @@ namespace SoftEng.Controllers
             return View();
         }
 
-        public IActionResult Register()
-        {
-            return View();
-        }
+      
 
         public IActionResult Contact()
         {

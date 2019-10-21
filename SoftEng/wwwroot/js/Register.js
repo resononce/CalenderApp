@@ -36,7 +36,7 @@ function Register() {
         //register
         $.ajax({
             type: "POST",
-            url: url,
+            url: fullUrl + "SoftEng/Home/Register",
             data: {
                 username: $('#usernameText').val(),
                 password: $('#passwordText').val()
@@ -59,4 +59,27 @@ function Register() {
     if (error != "") {
         alert(error);
     }
- }
+}
+function Validate() {
+    $.ajax(
+        {
+            type: "POST",
+            url: fullUrl + "Home/Validate",
+            data: {
+                username: $('#usernameText').val(),
+                password: $('#passwordText').val()
+            },
+            error: function (result) {
+                alert("There is a Problem, Try Again! ");
+            },
+            success: function (result) {
+                console.log(result);
+                if (result.status == true) {
+                    window.location.href = fullUrl + "Home/Main";
+                }
+                else {
+                    alert(result.message);
+                }
+            }
+        });
+}
