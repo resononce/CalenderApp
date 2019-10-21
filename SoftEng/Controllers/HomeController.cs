@@ -38,6 +38,21 @@ namespace SoftEng.Controllers
             }
         }
 
+        public ActionResult Register(string username, string password)
+        {
+            User user = db.GetUserByName(username);
+            if(user != null)
+            {
+                return Json(new { status = false, message = "User already exists" });
+            }
+            else
+            {
+                user = new User { IsAdmin = (byte)0, Username = username, Phash = password };
+                bool isSuccessful = db.AddUser(user);
+                return Json(new { status = isSuccessful, message = "There was a problem registering" });
+            }
+        }
+
         public IActionResult Main()
         {
             return View();
