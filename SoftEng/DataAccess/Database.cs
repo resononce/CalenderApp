@@ -31,15 +31,9 @@ namespace SoftEng.DataAccess
 
         public bool AddUser(User user)
         {
-            if (context.Users.Contains(user))
-            {
-                return false;
-            }
-            else
-            {
-                context.Users.Add(user);
-                return true;
-            }
+            context.Users.Add(user);
+            context.SaveChanges();
+            return true;
         }
     }
 }

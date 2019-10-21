@@ -46,7 +46,7 @@ function Register() {
             },
             success: function (result) {
                 if (result.status == true) {
-                    window.location.href = 'Controllers/HomeController/';
+                    window.location.href = home;
                 }
                 else {
                     error = result.message;
