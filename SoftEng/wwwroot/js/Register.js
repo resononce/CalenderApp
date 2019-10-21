@@ -36,7 +36,7 @@ function Register() {
         //register
         $.ajax({
             type: "POST",
-            url: fullUrl + "SoftEng/Home/Register",
+            url: fullUrl + "Home/Register",
             data: {
                 username: $('#usernameText').val(),
                 password: $('#passwordText').val()
@@ -46,7 +46,7 @@ function Register() {
             },
             success: function (result) {
                 if (result.status == true) {
-                    window.location.href = home;
+                    window.location.href = fullUrl + "Home/Main";
                 }
                 else {
                     error = result.message;
