@@ -12535,7 +12535,7 @@
       "outputPath": "C:\\Users\\ottoj11\\Source\\Repos\\CalenderApp\\SoftEng\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\ottoj11\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -12545,7 +12545,6 @@
         "netcoreapp2.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

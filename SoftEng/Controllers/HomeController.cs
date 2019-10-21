@@ -63,10 +63,8 @@ namespace SoftEng.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Register()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
