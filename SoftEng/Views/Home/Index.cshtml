@@ -6,13 +6,13 @@
     var url = '@Url.Action("Register", "Home")';
     var home = '@Url.Action("Main", "Home")';
 </script>
-<div>
+<div align="center">
     <h1>Calendar Application</h1>
-    Username: <input type="text" id="usernameText" name="Username" /><br />
-    Password: <input type="password" id="passwordText" name="Password" /><br />
+    <label>Username:</label><input type="text" id="usernameText" name="Username" /><br />
+    <label>Password:</label><input type="password" id="passwordText" name="Password" /><br />
     Check to Register: <input type="checkbox" id="registerCheckbox" name="RegisterCheckbox" onchange="toggleRegisterLogin()" /> <br />
     <div id="registerFields" class="hidden">
-        Re-enter Password: <input type="password" id="passwordTextAgain" name="PasswordAgain" /><br />
+        <label>Re-enter Password:</label><input type="password" id="passwordTextAgain" name="PasswordAgain" /><br />
         <input type="button" id="registerBtn" name="register" value="Register" onclick="Register()" /> <br />
     </div>
     <input type="button" id="userLoginBtn" name="user" value="User Login" onclick="Validate()" />
