@@ -47,7 +47,7 @@ namespace SoftEng.Controllers
             }
             else
             {
-                user = new User { IsAdmin = (byte)0, Username = username, Phash = password };
+                user = new User { IsAdmin = 0, Username = username, Phash = password };
                 bool isSuccessful = db.AddUser(user);
                 return Json(new { status = isSuccessful, message = "There was a problem registering" });
             }

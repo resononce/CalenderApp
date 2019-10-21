@@ -7,7 +7,7 @@ namespace SoftEng.DataAccess.DataObjects
     {
         public int Id { get; set; }
         public string Username { get; set; }
-        public bool IsAdmin { get; set; }
+        public int IsAdmin { get; set; }
         public string Phash { get; set; }
     }
 }
