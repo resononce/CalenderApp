@@ -399,3 +399,9 @@ SoftEng/bin/Debug/netcoreapp2.1/Properties/launchSettings.json
 SoftEng/bin/Debug/netcoreapp2.1/appsettings.json
 
 SoftEng/bin/Debug/netcoreapp2.1/appsettings.Development.json
+
+SoftEng/obj/Debug/netcoreapp2.1/SoftEng.assets.cache
+
+SoftEng/obj/Debug/netcoreapp2.1/SoftEng.csproj.FileListAbsolute.txt
+
+SoftEng/obj/Debug/netcoreapp2.1/SoftEng.Views.dll
