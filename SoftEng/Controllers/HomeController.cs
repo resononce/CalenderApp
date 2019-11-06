@@ -12,6 +12,7 @@ namespace SoftEng.Controllers
 {
     public class HomeController : Controller
     {
+        public static User user = null;
         private readonly Database db;
         public HomeController(team7Context context)
         {
@@ -25,6 +26,7 @@ namespace SoftEng.Controllers
             {
                 if (_user.Phash == password)
                 {
+                    HomeController.user = _user;
                     return Json(new { status = true, message = "Login Successfull!" });
                 }
                 else
