@@ -1,0 +1,47 @@
+﻿
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h4>CalendarApp</h4>
+            </div>
+            <div class="navbar-collapse collapse">
+                @if (true) //@TODO If signed in
+                {
+                    if (false) //@TODO If Admin
+                    {
+                        <ul class="nav navbar-nav">
+                            <li><a asp-controller="Admin" asp-action="Home">Home</a></li>
+                            <li><a asp-controller="Admin" asp-action="ClassesTable">Classes Table</a></li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul class="nav navbar-nav">
+                            <li><a asp-controller="User" asp-action="Home">Home</a></li>
+                            <li><a asp-controller="User" asp-action="WeeklyView">Weekly View</a></li>
+                            <li><a asp-controller="User" asp-action="CompareSchedules">Compare Schedules</a></li>
+                            <li><a asp-controller="User" asp-action="Enroll">Enroll</a></li>
+                            <li><a asp-controller="User" asp-action="AddTask">Add New Task</a></li>
+                        </ul>
+                    }
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a asp-controller="Home" asp-action="Index">Sign Out</a></li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a asp-controller="Home" asp-action="Index">Sign In</a></li>
+                        <li><a>Register</a></li>
+                    </ul>
+                }
+            </div>
+        </div>
+    </nav>

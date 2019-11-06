@@ -1,12 +1,29 @@
-﻿@{
+﻿@model SoftEng.DataAccess.DataObjects.team7Context
+@{
     ViewData["Title"] = "Admin Classes Table";
 }
+
+<script type="text/javascript" src="~/js/ClassesTable.js"></script>
 
 <div class="navBar">
     <a asp-controller="Admin" asp-action="Home">Home</a>
     <a asp-controller="Admin" asp-action="ClassesTable">Classes Table</a>
     <a asp-controller="Home" asp-action="Index">Sign Out</a>
 </div>
-<div align="center">
-    <h2>Classes Table</h2>
-</div>
+
+<h2>Classes Table</h2>
+
+<table>
+    <tbody>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Time</th>
+        </tr>
+
+
+
+    </tbody>
+</table>

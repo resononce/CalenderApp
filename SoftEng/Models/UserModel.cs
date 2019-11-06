@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-
-namespace SoftEng.DataAccess.DataObjects
+namespace SoftEng.Models
 {
-    public partial class User
+    public class UserModel
     {
         public int Id { get; set; }
         public string Username { get; set; }
