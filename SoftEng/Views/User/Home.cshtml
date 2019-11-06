@@ -1,6 +1,8 @@
-﻿@{
+﻿@using SoftEng.DataAccess.DataObjects;
+@{
     ViewData["Title"] = "User Home";
 }
+@model SoftEng.Models.UserHomeModel
 
 <div class="navBar">
     <a asp-controller="User" asp-action="Home">Home</a>
@@ -12,4 +14,14 @@
 </div>
 <div align="center">
     <h2>User Home</h2>
+    <ul>
+        @foreach(Event e in this.Model.UserHomeEvents)
+        {
+            <li><span>@(e.Name)</span></li>
+            <ul>
+                <li>@(e.Location)</li>
+                <li>@(e.EventDate)</li>
+            </ul>
+        }
+    </ul>
 </div>
