@@ -2,14 +2,22 @@
     ViewData["Title"] = "User Enroll";
 }
 
-<div class="navBar">
-    <a asp-controller="User" asp-action="Home">Home</a>
-    <a asp-controller="User" asp-action="WeeklyView">Weekly View</a>
-    <a asp-controller="User" asp-action="CompareSchedules">Compare Schedules</a>
-    <a asp-controller="User" asp-action="Enroll">Enroll</a>
-    <a asp-controller="User" asp-action="AddTask">Add New Task</a>
-    <a asp-controller="Home" asp-action="Home">Sign Out</a>
-</div>
 <div align="center">
     <h2>Enroll</h2>
+</div>
+<div align="center">
+    <form>
+        <div>
+            <lable>Class:</lable>
+            <select>
+                <option></option>
+                <option>Class 1</option>
+                <option>Class 2</option>
+                <option>Class 3</option>
+            </select>
+        </div>
+        <div>
+            <button>Enroll</button>
+        </div>
+    </form>
 </div>

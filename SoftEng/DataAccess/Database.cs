@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -34,6 +35,14 @@ namespace SoftEng.DataAccess
             context.Users.Add(user);
             context.SaveChanges();
             return true;
+        }
+
+        // Get All Classes
+        public IEnumerable<Class> GetAllClasses()
+        {
+            var query = from class_ in context.Classes select class_;
+            IEnumerable<Class> classList = query.ToList();
+            return classList;
         }
     }
 }

@@ -145,7 +145,7 @@ namespace SoftEng.DataAccess.DataObjects
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
-                entity.Property(e => e.IsAdmin).HasColumnType("int(1)");
+                entity.Property(e => e.IsAdmin).HasColumnType("tinyint(1)");
 
                 entity.Property(e => e.Phash)
                     .IsRequired()
