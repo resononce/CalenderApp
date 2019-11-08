@@ -2,75 +2,77 @@
     ViewData["Title"] = "User Add Task";
 }
 <script type="text/javascript" src="~/js/AddTask.js"></script>
-
+<script>
+    var fullUrl = '@Url.Content("~")';
+</script>
 <h2 align="center">Add Task</h2>
 <div>
     <form class="form-horizontal">
         <div class="form-group">
             <label class="col-sm-2 control-label">Name:</label>
             <div class="col-sm-10">
-                <input type="text" id="taskName"/>
+                <input type="text" id="taskName" required />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">Start Time:</label>
             <div class="col-sm-10">
-                <input type="time" id="startTime"/>
+                <input type="time" id="startTime" required />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">End Time:</label>
             <div class="col-sm-10">
-                <input type="time" id="endTime"/>
+                <input type="time" id="endTime" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Task Date:</label>
+            <div class="col-sm-10">
+                <input id="taskDate" type="date" required />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">Recurring:</label>
             <div class="col-sm-10">
-                <label class="radio-inline">
-                    <input type="radio" id="recurringYes" name="recurringRadio" onclick="toggleRecurring()"/> Yes
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" id="recurringNo" name="recurringRadio" onclick="toggleRecurring()"/> No
-                </label>
+                <input type="checkbox" id="recurringCheck" name="RecurringCheckbox" onchange="toggleRecurring()" />
             </div>
         </div>
         <div class="form-group hidden" id="recurringDays">
             <label class="col-sm-2 control-label">Select Day(s):</label>
             <div class="col-sm-10">
                 <label class="checkbox-inline">
-                    <input type="checkbox" id="sunChkBox"/> Sun
+                    <input type="checkbox" id="sunChkBox" /> Sun
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" id="monChkBox"/> Mon
+                    <input type="checkbox" id="monChkBox" /> Mon
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" id="tueChkBox"/> Tue
+                    <input type="checkbox" id="tueChkBox" /> Tue
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" id="wedChkBox"/> Wed
+                    <input type="checkbox" id="wedChkBox" /> Wed
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" id="thrChkBox"/> Thr
+                    <input type="checkbox" id="thrChkBox" /> Thr
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" id="friChkBox"/> Fri
+                    <input type="checkbox" id="friChkBox" /> Fri
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" id="satChkBox"/> Sat
+                    <input type="checkbox" id="satChkBox" /> Sat
                 </label>
             </div>
-        </div>
-        <div class="form-group hidden" id="selectDay">
-            <label class="col-sm-2 control-label">Select Date:</label>
+            <label class="col-sm-2 control-label">Select day to end Recurring:</label>
             <div class="col-sm-10">
-                <input type="date"/>
+                <input type="date" id="recurringEndDate" />
             </div>
         </div>
+
         <div class="form-group">
             <label class="col-sm-2 control-label"></label>
             <div class="col-sm-10">
-                <button type="submit" class="btn btn-success" id="addTaskBtn">Submit</button>
+                <button type="submit" class="btn btn-success" id="addTaskBtn" onclick="return addTask()" >Submit</button>
             </div>
         </div>
     </form>

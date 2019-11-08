@@ -1,6 +1,11 @@
 ﻿
 
 function toggleRegisterLogin() {
+    $("#userLoginBtn").toggleClass("hidden");
+    $("#registerFields").toggleClass("hidden");
+
+
+    /*
     var checked = $("#registerCheckbox").is(":checked");
     if (checked) {
         $("#userLoginBtn").removeClass("hidden").addClass("hidden");
@@ -8,7 +13,7 @@ function toggleRegisterLogin() {
     } else {
         $("#registerFields").removeClass("hidden").addClass("hidden");
         $("#userLoginBtn").removeClass("hidden");
-    }
+    }*/
 }
 
 function Register() {
