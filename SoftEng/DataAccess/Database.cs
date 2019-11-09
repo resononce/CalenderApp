@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SoftEng.DataAccess.DataObjects;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace SoftEng.DataAccess
 {
     public class Database
@@ -25,7 +23,9 @@ namespace SoftEng.DataAccess
         /// <returns>a User Object</returns>
         public User GetUserByName(string username)
         {
-            var query = from x in context.Users where x.Username == username select x;
+            var query = from x in context.Users
+                        where x.Username == username
+                        select x;
             User user = query.FirstOrDefault();
             return user;
         }
@@ -40,7 +40,8 @@ namespace SoftEng.DataAccess
         // Get All Classes
         public IEnumerable<Class> GetAllClasses()
         {
-            var query = from class_ in context.Classes select class_;
+            var query = from class_ in context.Classes
+                        select class_;
             IEnumerable<Class> classList = query.ToList();
             return classList;
         }
@@ -57,7 +58,8 @@ namespace SoftEng.DataAccess
         public IEnumerable<Class> GetEventsBetween(DateTime start, DateTime end)
         {
             //Change this stuff
-            var query = from class_ in context.Classes select class_;
+            var query = from class_ in context.Classes
+                        select class_;
             IEnumerable<Class> classList = query.ToList();
             return classList;
         }

@@ -9,8 +9,6 @@ using SoftEng.DataAccess;
 using SoftEng.DataAccess.DataObjects;
 using SoftEng.Models;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace SoftEng.Controllers
 {
     public class UserController : Controller
@@ -28,7 +26,13 @@ namespace SoftEng.Controllers
             {
                 UserHomeModel model = new UserHomeModel();
                 model.UserHomeEvents = new List<Event>();
-                model.UserHomeEvents.Add(new Event { Id = 1, EventDate = new DateTime(), EventTime = new TimeSpan(), Name = "Test", Location = "Test Place" });
+                model.UserHomeEvents.Add(new Event {
+                    Id = 1,
+                    EventDate = new DateTime(),
+                    EventTime = new TimeSpan(),
+                    Name = "Test",
+                    Location = "Test Place"
+                });
                 //model.UserHomeEvents = this.db.GetUserEvents();
                 return View(model);
             }
@@ -71,10 +75,13 @@ namespace SoftEng.Controllers
             return View();
         }
 
-        public ActionResult RequestWeekly(DateTime start, DateTime end)
+        public ActionResult GetEventsBetween(DateTime start, DateTime end)
         {
-            db.GetEventsBetween(start, end);
-            return Json(new { status = false, message = "Task failed successfully!" });
+            //db.GetEventsBetween(start, end);
+            return Json(new {
+                status = false,
+                message = "Task failed successfully!"
+            });
         }
 
         public ActionResult AddNewTask(string taskName, DateTime startTime,
@@ -82,7 +89,10 @@ namespace SoftEng.Controllers
             Dictionary<string, bool> daysRecurring, DateTime recurringEndDate)
         {
             //db.AddTask();
-            return Json(new { status = false, message = "Task failed successfully! " });
+            return Json(new {
+                status = false,
+                message = "Task failed successfully!"
+            });
         }
     }
 }

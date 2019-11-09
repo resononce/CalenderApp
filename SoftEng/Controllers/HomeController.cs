@@ -27,16 +27,25 @@ namespace SoftEng.Controllers
                 if (_user.Phash == password)
                 {
                     HomeController.user = _user;
-                    return Json(new { status = true, message = "Login Successfull!" });
+                    return Json(new {
+                        status = true,
+                        message = "Login Successfull!"
+                    });
                 }
                 else
                 {
-                    return Json(new { status = false, message = "Invalid Password!" });
+                    return Json(new {
+                        status = false,
+                        message = "Invalid Password!"
+                    });
                 }
             }
             else
             {
-                return Json(new { status = false, message = "Invalid Username!" });
+                return Json(new {
+                    status = false,
+                    message = "Invalid Username!"
+                });
             }
         }
 
@@ -45,13 +54,23 @@ namespace SoftEng.Controllers
             User user = db.GetUserByName(username);
             if(user != null)
             {
-                return Json(new { status = false, message = "User already exists" });
+                return Json(new {
+                    status = false,
+                    message = "User already exists"
+                });
             }
             else
             {
-                user = new User { IsAdmin = 0, Username = username, Phash = password };
+                user = new User {
+                    IsAdmin = 0,
+                    Username = username,
+                    Phash = password
+                };
                 bool isSuccessful = db.AddUser(user);
-                return Json(new { status = isSuccessful, message = "There was a problem registering" });
+                return Json(new {
+                    status = isSuccessful,
+                    message = "There was a problem registering"
+                });
             }
         }
 
@@ -65,12 +84,9 @@ namespace SoftEng.Controllers
             return View();
         }
 
-      
-
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 
@@ -79,10 +95,16 @@ namespace SoftEng.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [ResponseCache(
+            Duration = 0, 
+            Location = ResponseCacheLocation.None, 
+            NoStore = true)]
+
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel {
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            });
         }
     }
 }
