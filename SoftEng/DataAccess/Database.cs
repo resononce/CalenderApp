@@ -84,7 +84,5 @@ namespace SoftEng.DataAccess
                                        .Where( c => c.EndDate <= end);
             return query;
         }
-
-        public IEnumerable<>
     }
 }
