@@ -70,5 +70,13 @@ namespace SoftEng.Controllers
         {
             return View();
         }
+
+        public ActionResult AddNewTask(string taskName, DateTime startTime,
+            DateTime endTime, DateTime taskDate, bool recurring,
+            Dictionary<string, bool> daysRecurring, DateTime recurringEndDate)
+        {
+            //db.AddTask();
+            return Json(new { status = false, message = "Task failed successfully! " + daysRecurring["sun"] });
+        }
     }
 }

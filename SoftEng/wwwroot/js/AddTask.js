@@ -49,7 +49,7 @@ function addTask() {
     else {
         $.ajax({
             type: "POST",
-            url: fullUrl + "User/AddTask",
+            url: fullUrl + "AddNewTask",
             data: {
                 taskName: taskName,
                 startTime: startTime,
@@ -68,7 +68,7 @@ function addTask() {
                     window.location.href = fullUrl + "Home/Main";
                 }
                 else {
-                    error = result.message;
+                    alert(result.message);
                 }
             }
         });
