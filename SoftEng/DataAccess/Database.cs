@@ -44,5 +44,22 @@ namespace SoftEng.DataAccess
             IEnumerable<Class> classList = query.ToList();
             return classList;
         }
+
+        //TO DO
+        // Add Task
+        public bool AddTask(Event task)//IDK
+        {
+            return false;
+        }
+
+        //TO DO
+        // Get All Events Between 2 dates
+        public IEnumerable<Class> GetEventsBetween(DateTime start, DateTime end)
+        {
+            //Change this stuff
+            var query = from class_ in context.Classes select class_;
+            IEnumerable<Class> classList = query.ToList();
+            return classList;
+        }
     }
 }
