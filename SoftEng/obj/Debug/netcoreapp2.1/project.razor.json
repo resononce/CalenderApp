@@ -2887,6 +2887,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Admin\\Home.cshtml",
+      "TargetPath": "Views\\Admin\\Home.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -2897,13 +2902,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Admin\\ClassesTable.cshtml",
+      "TargetPath": "Views\\Admin\\ClassesTable.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\Main.cshtml",
+      "TargetPath": "Views\\Home\\Main.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Shared\\_CookieConsentPartial.cshtml",
       "TargetPath": "Views\\Shared\\_CookieConsentPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Home\\About.cshtml",
-      "TargetPath": "Views\\Home\\About.cshtml",
+      "FilePath": "Views\\User\\AddTask.cshtml",
+      "TargetPath": "Views\\User\\AddTask.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2912,8 +2927,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\User\\Enroll.cshtml",
+      "TargetPath": "Views\\User\\Enroll.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\Register.cshtml",
+      "TargetPath": "Views\\Home\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\User\\Home.cshtml",
+      "TargetPath": "Views\\User\\Home.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2924,6 +2954,16 @@
     {
       "FilePath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\User\\CompareSchedules.cshtml",
+      "TargetPath": "Views\\User\\CompareSchedules.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\User\\WeeklyView.cshtml",
+      "TargetPath": "Views\\User\\WeeklyView.cshtml",
       "FileKind": "mvc"
     }
   ],

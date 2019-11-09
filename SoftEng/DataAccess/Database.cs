@@ -32,6 +32,11 @@ namespace SoftEng.DataAccess
 
         public bool AddUser(User user)
         {
+            var userExists = from x in context.Users where x.Username == user.Username select x;
+            if (userExists.Count() != 0)
+            {
+                return false;
+            }
             context.Users.Add(user);
             context.SaveChanges();
             return true;
@@ -46,22 +51,40 @@ namespace SoftEng.DataAccess
             return classList;
         }
 
-        //TO DO
-        // Add Task
-        public bool AddTask(Event task)//IDK
+        public IEnumerable<Event> GetUserEvents(User user)
         {
-            return false;
+            var query = context.Users.Include(e => e.Events)
+                                    .Where(e => e.Username == user.Username)
+                                    .FirstOrDefault();
+            return query.Events;
         }
 
-        //TO DO
+        //TODO
+        // Add Task
+        public bool AddTask(Event task)
+        {
+            try 
+            { 
+                context.Events.Add(task);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        //TODO
         // Get All Events Between 2 dates
         public IEnumerable<Class> GetEventsBetween(DateTime start, DateTime end)
         {
             //Change this stuff
-            var query = from class_ in context.Classes
-                        select class_;
-            IEnumerable<Class> classList = query.ToList();
-            return classList;
+            var query = context.Classes.Where( c => c.StartDate >= start)
+                                       .Where( c => c.EndDate <= end);
+            return query;
         }
+
+        public IEnumerable<>
     }
 }

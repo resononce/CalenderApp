@@ -8,5 +8,6 @@ namespace SoftEng.DataAccess.DataObjects
         public int Id { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public virtual Event Event { get; set; }
     }
 }

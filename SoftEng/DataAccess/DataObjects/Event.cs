@@ -14,5 +14,6 @@ namespace SoftEng.DataAccess.DataObjects
         public int? ClassId { get; set; }
         public int? RecurrenceId { get; set; }
         public int? TaskId { get; set; }
+        public virtual ICollection<Event> Events{ get; set; }
     }
 }
