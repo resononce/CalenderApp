@@ -103,8 +103,7 @@ namespace SoftEng.DataAccess.DataObjects
                 entity.HasOne(e => e.Task).WithOne(e => e.Event);
                 entity.HasOne(e => e.Class);
 
-                entity.HasIndex("Id");
-                entity.Property(e => e.Id).HasColumnType("int(11)");
+                entity.Property(e => e.Id).HasColumnType("int(11)").ValueGeneratedOnAdd();
 
                 entity.Property(e => e.ClassId).HasColumnType("int(11)");
 
