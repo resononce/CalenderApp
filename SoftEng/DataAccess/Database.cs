@@ -59,6 +59,15 @@ namespace SoftEng.DataAccess
             return query.Events;
         }
 
+        /*public IEnumerable<Event> GetUserEventsWithDetails(User user)
+        {
+            var query = context.Users.Include(e => e.Events).ThenInclude(e => e.)
+                                    .Where(e => e.Username == user.Username)
+                                    .FirstOrDefault()
+                                    .Events.in;
+            return query.Events;
+        }*/
+
         public Task GetTaskById(int id)
         {
             var query = context.Tasks.Where(t => t.Id == id);
