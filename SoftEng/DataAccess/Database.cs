@@ -59,6 +59,22 @@ namespace SoftEng.DataAccess
             return query.Events;
         }
 
+        public Task GetTaskById(int id)
+        {
+            var query = context.Tasks.Where(t => t.Id == id);
+                return query.FirstOrDefault();
+        }
+        public Recurrence GetRecurrenceById(int id)
+        {
+            var query = context.Recurrences.Where(t => t.Id == id);
+            return query.FirstOrDefault();
+        }
+        public Class GetClassById(int id)
+        {
+            var query = context.Classes.Where(t => t.Id == id);
+            return query.FirstOrDefault();
+        }
+
         // Add Task
         public bool AddTask(Task task)
         {
