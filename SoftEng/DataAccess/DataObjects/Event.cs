@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SoftEng.DataAccess.DataObjects
 {
@@ -14,6 +15,12 @@ namespace SoftEng.DataAccess.DataObjects
         public int? ClassId { get; set; }
         public int? RecurrenceId { get; set; }
         public int? TaskId { get; set; }
-        public virtual ICollection<Event> Events{ get; set; }
+        [ForeignKey("ClassId")]
+        public virtual Class Class{ get; set; }
+        [ForeignKey("RecurrenceId")]
+        public virtual Recurrence Recurrence { get; set; }
+        [ForeignKey("TaskId")]
+        public virtual Task Task { get; set; }
+
     }
 }
