@@ -1,23 +1,28 @@
-﻿@{
+﻿@model SoftEng.Models.ClassListModel
+@{
     ViewData["Title"] = "User Enroll";
 }
 
 <div align="center">
     <h2>Enroll</h2>
 </div>
-<div align="center">
-    <form>
-        <div>
-            <lable>Class:</lable>
-            <select>
-                <option></option>
-                <option>Class 1</option>
-                <option>Class 2</option>
-                <option>Class 3</option>
-            </select>
+<div>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Class:</label>
+            <div class="col-sm-3">
+                <select class="form-control" id="selectClass">
+                    @foreach (var cl in Model.ClassList) {
+                        <option>@cl.Name</option>
+                    }
+                </select>
+            </div>
         </div>
-        <div>
-            <button>Enroll</button>
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-success" id="enrollClass">Enroll</button>
+            </div>
         </div>
     </form>
 </div>
