@@ -69,7 +69,11 @@ function Validate() {
             success: function (result) {
                 console.log(result);
                 if (result.status == true) {
-                    window.location.href = fullUrl + "Home/Main";
+                    if (result.isAdmin == false) {
+                        window.location.href = fullUrl + "User/Home";
+                    } else {
+                        window.location.href = fullUrl + "Admin/Home";
+                    }
                 }
                 else {
                     alert(result.message);
