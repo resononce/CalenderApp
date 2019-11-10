@@ -67,7 +67,7 @@ function addTask() {
                     window.location.href = fullUrl + "Home/Main";
                 }
                 else {
-                    alert(result.message);
+                    alert("could not add task: \n" + result.message);
                 }
             }
         });

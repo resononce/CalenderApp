@@ -29,7 +29,6 @@ namespace SoftEng.Controllers
             {
                 UserHomeModel model = new UserHomeModel();
                 model.UserHomeEvents = new List<Event>();
-                //model.UserHomeEvents.Add(new Event { Id = 1, EventDate = new DateTime(), EventTime = new TimeSpan(), Name = "Test", Location = "Test Place" });
                 model.UserHomeEvents = this.db.GetUserEvents(HomeController.user).ToList();
                 return View(model);
             }
@@ -82,23 +81,13 @@ namespace SoftEng.Controllers
                 message = "Task failed successfully!"
             });
         }
-
-        public DateTime ISODatetoDateTime(string date)
-        {//2019-11-19T00:00:00.000Z
-            /*DateTime dt = DateTime.ParseExact(date,
-                      "yyyy-MM-dd",
-                      CultureInfo.InvariantCulture);*/
-
-            return DateTime.Parse(date);
-        }
-
-        //Not fully working yet
+        
         public ActionResult AddNewTask(string taskName, string startTimeStr,
             string endTimeStr, string taskDateStr, bool recurring,
             Dictionary<string, bool> daysRecurring, string recurringEndDateStr)
         {
             TimeSpan time = TimeSpan.Parse(endTimeStr) - TimeSpan.Parse(startTimeStr);
-            DateTime taskDate = ISODatetoDateTime(taskDateStr);
+            DateTime taskDate = DateTime.Parse(taskDateStr);
             
             Event evnt = new Event
             {
@@ -114,7 +103,7 @@ namespace SoftEng.Controllers
             };
             if(recurring)
             {
-                DateTime recurringEndDate = ISODatetoDateTime(recurringEndDateStr);
+                DateTime recurringEndDate = DateTime.Parse(recurringEndDateStr);
                 evnt.Recurrence = new Recurrence
                 {
                     StartDate = taskDate,
