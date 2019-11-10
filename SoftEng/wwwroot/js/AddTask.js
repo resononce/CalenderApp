@@ -5,12 +5,10 @@ function toggleRecurring() {
 
 function addTask() {
     var error = "";
-    var data;
     var taskName = $('#taskName').val();
-    var startTime = new Date($('#startTime').val());
-    alert(startTime);
-    var endTime = new Date($('#endTime').val());
-    var taskDate = new Date($('#taskDate').val());
+    var startTime = $('#startTime').val().toString();
+    var endTime = $('#endTime').val().toString();
+    var taskDate = new Date($('#taskDate').val()).toISOString();
     var recurring = $('#recurringCheck').is(":checked");
     var daysRecurring, recurringEndDate;
     if (recurring) {
@@ -23,15 +21,15 @@ function addTask() {
             "fri" : $('#friChkBox').is(':checked'),
             "sat" : $('#satChkBox').is(':checked')
         }
-        recurringEndDate = new Date ($('#recurringEndDate').val());
+        recurringEndDate = new Date($('#recurringEndDate').val()).toISOString();
     }
-    if (taskName.length == 0)
+    if (taskName.length === 0)
         error += "Must input task name\n";
-    if (startTime.length == 0)
+    if (startTime.length === 0)
         error += "Must input start Time \n";
-    if (endTime.length == 0)
+    if (endTime.length === 0)
         error += "Must input end Time \n";
-    if (isNaN(taskDate.getFullYear()))
+    if (taskDate.length === 0)
         error += "Must input date \n";
     if (recurring) {
         var atLeastOneChecked = false;
@@ -41,24 +39,24 @@ function addTask() {
         }
         if (!atLeastOneChecked)
             error += "Atleast one day must be checked\n";
-        if (isNaN(recurringEndDate.getFullYear()))
+        if (recurringEndDate.length === 0)
             error += "Must input recurring end date \n";
     }
 
     if (error != "")
-        alert(error);
+        alert("Error: " + error);
     else {
         $.ajax({
             type: "POST",
             url: fullUrl + "AddNewTask",
             data: {
                 taskName: taskName,
-                startTime: startTime.toISOString(),
-                endTime: endTime.toISOString(),
-                taskDate: taskDate.toISOString(),
+                startTimeStr: startTime,
+                endTimeStr: endTime,
+                taskDateStr: taskDate,
                 recurring: recurring,
                 daysRecurring: daysRecurring,
-                recurringEndDate: recurringEndDate.toISOString()
+                recurringEndDateStr: recurringEndDate
             },
             error: function (result) {
                 alert("There is a Problem, Try Again! ");

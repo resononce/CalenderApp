@@ -84,11 +84,12 @@ namespace SoftEng.Controllers
         }
 
         public DateTime ISODatetoDateTime(string date)
-        {
-            DateTime dt = DateTime.ParseExact(date,
-                      "ddd MMM d HH:mm:ss UTCzzzzz yyyy",
-                      CultureInfo.InvariantCulture);
-            return dt;
+        {//2019-11-19T00:00:00.000Z
+            /*DateTime dt = DateTime.ParseExact(date,
+                      "yyyy-MM-dd",
+                      CultureInfo.InvariantCulture);*/
+
+            return DateTime.Parse(date);
         }
 
         //Not fully working yet
@@ -96,16 +97,16 @@ namespace SoftEng.Controllers
             string endTimeStr, string taskDateStr, bool recurring,
             Dictionary<string, bool> daysRecurring, string recurringEndDateStr)
         {
-            DateTime startTime = ISODatetoDateTime(startTimeStr);
-            DateTime endTime = ISODatetoDateTime(endTimeStr);
-            DateTime taskDate = ISODatetoDateTime(startTimeStr);
-            DateTime recurringEndDate = ISODatetoDateTime(recurringEndDateStr);
+            TimeSpan time = TimeSpan.Parse(endTimeStr) - TimeSpan.Parse(startTimeStr);
+            DateTime taskDate = ISODatetoDateTime(taskDateStr);
+            
             Event evnt = new Event
             {
                 Name = taskName,
-                //UserId = HomeController.user.Id,
-                EventDate = startTime,
-                EventTime = endTime - startTime,
+                UserId = HomeController.user.Id,
+                Location = "",
+                EventDate = taskDate,
+                EventTime = time,
                 Task = new Task
                 {
                     IsComplete = 0
@@ -113,9 +114,10 @@ namespace SoftEng.Controllers
             };
             if(recurring)
             {
+                DateTime recurringEndDate = ISODatetoDateTime(recurringEndDateStr);
                 evnt.Recurrence = new Recurrence
                 {
-                    StartDate = startTime,
+                    StartDate = taskDate,
                     EndDate = recurringEndDate
                 };
             }
@@ -123,7 +125,12 @@ namespace SoftEng.Controllers
             return Json(new
             {
                 status = success,
-                message = "Nope"
+                message = "name: " + evnt.Name +
+                          "\n user id: " + evnt.UserId +
+                          "\n location: " + evnt.Location +
+                          "\n event date: " + evnt.EventDate +
+                          "\n event time: " + evnt.EventTime +
+                          "\n recurrence: " + recurring
             });
         }
     }
