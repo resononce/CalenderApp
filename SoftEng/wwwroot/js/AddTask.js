@@ -7,8 +7,9 @@ function addTask() {
     var error = "";
     var data;
     var taskName = $('#taskName').val();
-    var startTime = $('#startTime').val();
-    var endTime = $('#endTime').val();
+    var startTime = new Date($('#startTime').val());
+    alert(startTime);
+    var endTime = new Date($('#endTime').val());
     var taskDate = new Date($('#taskDate').val());
     var recurring = $('#recurringCheck').is(":checked");
     var daysRecurring, recurringEndDate;
@@ -52,12 +53,12 @@ function addTask() {
             url: fullUrl + "AddNewTask",
             data: {
                 taskName: taskName,
-                startTime: startTime,
-                endTime: endTime,
-                taskDate: taskDate,
+                startTime: startTime.toISOString(),
+                endTime: endTime.toISOString(),
+                taskDate: taskDate.toISOString(),
                 recurring: recurring,
                 daysRecurring: daysRecurring,
-                recurringEndDate: recurringEndDate
+                recurringEndDate: recurringEndDate.toISOString()
             },
             error: function (result) {
                 alert("There is a Problem, Try Again! ");

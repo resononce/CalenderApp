@@ -16,7 +16,7 @@ namespace SoftEng.DataAccess.DataObjects
         public int? RecurrenceId { get; set; }
         public int? TaskId { get; set; }
         [ForeignKey("ClassId")]
-        public virtual Class Class{ get; set; }
+        public virtual Class Class { get; set; }
         [ForeignKey("RecurrenceId")]
         public virtual Recurrence Recurrence { get; set; }
         [ForeignKey("TaskId")]

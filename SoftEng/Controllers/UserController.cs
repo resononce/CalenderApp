@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SoftEng.DataAccess;
@@ -74,15 +75,56 @@ namespace SoftEng.Controllers
         public ActionResult RequestWeekly(DateTime start, DateTime end)
         {
             db.GetEventsBetween(start, end);
-            return Json(new { status = false, message = "Task failed successfully!" });
+            //TO DO
+            return Json(new
+            {
+                status = false,
+                message = "Task failed successfully!"
+            });
         }
 
-        public ActionResult AddNewTask(string taskName, DateTime startTime,
-            DateTime endTime, DateTime taskDate, bool recurring,
-            Dictionary<string, bool> daysRecurring, DateTime recurringEndDate)
+        public DateTime ISODatetoDateTime(string date)
         {
-            //db.AddTask();
-            return Json(new { status = false, message = "Task failed successfully! " });
+            DateTime dt = DateTime.ParseExact(date,
+                      "ddd MMM d HH:mm:ss UTCzzzzz yyyy",
+                      CultureInfo.InvariantCulture);
+            return dt;
+        }
+
+        //Not fully working yet
+        public ActionResult AddNewTask(string taskName, string startTimeStr,
+            string endTimeStr, string taskDateStr, bool recurring,
+            Dictionary<string, bool> daysRecurring, string recurringEndDateStr)
+        {
+            DateTime startTime = ISODatetoDateTime(startTimeStr);
+            DateTime endTime = ISODatetoDateTime(endTimeStr);
+            DateTime taskDate = ISODatetoDateTime(startTimeStr);
+            DateTime recurringEndDate = ISODatetoDateTime(recurringEndDateStr);
+            Event evnt = new Event
+            {
+                Name = taskName,
+                //UserId = HomeController.user.Id,
+                EventDate = startTime,
+                EventTime = endTime - startTime,
+                Task = new Task
+                {
+                    IsComplete = 0
+                }
+            };
+            if(recurring)
+            {
+                evnt.Recurrence = new Recurrence
+                {
+                    StartDate = startTime,
+                    EndDate = recurringEndDate
+                };
+            }
+            bool success = db.AddEvent(evnt);
+            return Json(new
+            {
+                status = success,
+                message = "Nope"
+            });
         }
     }
 }

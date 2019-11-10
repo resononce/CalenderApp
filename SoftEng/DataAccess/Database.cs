@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+//using System.Threading.Tasks; // Was getting in the way of our Task Object
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SoftEng.DataAccess.DataObjects;
@@ -32,7 +32,9 @@ namespace SoftEng.DataAccess
 
         public bool AddUser(User user)
         {
-            var userExists = from x in context.Users where x.Username == user.Username select x;
+            var userExists = from x in context.Users
+                             where x.Username == user.Username
+                             select x;
             if (userExists.Count() != 0)
             {
                 return false;
@@ -59,13 +61,12 @@ namespace SoftEng.DataAccess
             return query.Events;
         }
 
-        //TODO
         // Add Task
-        public bool AddTask(Event task)
+        public bool AddTask(Task task)
         {
-            try 
-            { 
-                context.Events.Add(task);
+            try
+            {
+                context.Tasks.Add(task);
                 context.SaveChanges();
                 return true;
             }
@@ -75,13 +76,41 @@ namespace SoftEng.DataAccess
             }
         }
 
-        //TODO
-        // Get All Events Between 2 dates
-        public IEnumerable<Class> GetEventsBetween(DateTime start, DateTime end)
+        // Add Event
+        public bool AddEvent(Event evnt)
         {
-            //Change this stuff
-            var query = context.Classes.Where( c => c.StartDate >= start)
-                                       .Where( c => c.EndDate <= end);
+            try
+            {
+                context.Events.Add(evnt);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        // Add Recurrence
+        public bool AddRecurrence(Recurrence recur)
+        {
+            try
+            {
+                context.Recurrences.Add(recur);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        // Get All Events Between 2 dates
+        public IEnumerable<Event> GetEventsBetween(DateTime start, DateTime end)
+        {
+            var query = context.Events.Where( c => c.EventDate >= start)
+                                       .Where( c => c.EventDate <= end);
             return query;
         }
     }
