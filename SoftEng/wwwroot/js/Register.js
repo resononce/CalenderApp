@@ -4,9 +4,12 @@ function toggleRegisterLogin() {
     var checked = $("#registerCheckbox").is(":checked");
     if (checked) {
         $("#userLoginBtn").removeClass("hidden").addClass("hidden");
-        $("#registerFields").removeClass("hidden");
+        $("#reEnterPassword").removeClass("hidden");
+        $("#register").removeClass("hidden");
     } else {
-        $("#registerFields").removeClass("hidden").addClass("hidden");
+
+        $("#reEnterPassword").removeClass("hidden").addClass("hidden");
+        $("#register").removeClass("hidden").addClass("hidden");
         $("#userLoginBtn").removeClass("hidden");
     }
 }
