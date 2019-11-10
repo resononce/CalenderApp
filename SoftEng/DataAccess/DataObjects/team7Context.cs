@@ -73,7 +73,6 @@ namespace SoftEng.DataAccess.DataObjects
             {
                 entity.ToTable("CompareRequest", "team7");
                 entity.HasOne(e => e.FromUserTable).WithMany(e => e.CompareRequests);
-                entity.HasOne(e => e.ToUserTable).WithMany(e => e.CompareRequests);
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -151,7 +150,6 @@ namespace SoftEng.DataAccess.DataObjects
             modelBuilder.Entity<User>(entity =>
             {
                 entity.ToTable("User", "team7");
-                entity.HasMany(e => e.CompareRequests).WithOne( e => e.ToUserTable);
                 entity.HasMany(e => e.CompareRequests).WithOne(e => e.FromUserTable);
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
