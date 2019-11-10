@@ -23,9 +23,7 @@ namespace SoftEng.DataAccess
         /// <returns>a User Object</returns>
         public User GetUserByName(string username)
         {
-            var query = from x in context.Users
-                        where x.Username == username
-                        select x;
+            var query = context.Users.Where(u => u.Username == username);
             User user = query.FirstOrDefault();
             return user;
         }

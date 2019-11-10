@@ -37,6 +37,7 @@ namespace SoftEng.DataAccess.DataObjects
             modelBuilder.Entity<Class>(entity =>
             {
                 entity.ToTable("Class", "team7");
+                entity.HasMany(e => e.ClassDay).WithOne(e => e.Class);
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -58,6 +59,8 @@ namespace SoftEng.DataAccess.DataObjects
             modelBuilder.Entity<ClassDay>(entity =>
             {
                 entity.ToTable("ClassDay", "team7");
+                entity.HasOne(e => e.Class).WithMany(e => e.ClassDay);
+                entity.HasOne(e => e.Day).WithOne(e => e.ClassDay);
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -69,6 +72,8 @@ namespace SoftEng.DataAccess.DataObjects
             modelBuilder.Entity<CompareRequest>(entity =>
             {
                 entity.ToTable("CompareRequest", "team7");
+                entity.HasOne(e => e.FromUserTable).WithMany(e => e.CompareRequests);
+                entity.HasOne(e => e.ToUserTable).WithMany(e => e.CompareRequests);
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -82,7 +87,7 @@ namespace SoftEng.DataAccess.DataObjects
             modelBuilder.Entity<Day>(entity =>
             {
                 entity.ToTable("Day", "team7");
-
+                entity.HasOne(e => e.ClassDay).WithOne(e => e.Day);
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
                 entity.Property(e => e.Day1)
@@ -95,6 +100,9 @@ namespace SoftEng.DataAccess.DataObjects
             modelBuilder.Entity<Event>(entity =>
             {
                 entity.ToTable("Event", "team7");
+                entity.HasOne(e => e.Recurrence).WithOne(e => e.Event);
+                entity.HasOne(e => e.Task).WithOne(e => e.Event);
+                entity.HasOne(e => e.Class);
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -122,6 +130,7 @@ namespace SoftEng.DataAccess.DataObjects
             modelBuilder.Entity<Recurrence>(entity =>
             {
                 entity.ToTable("Recurrence", "team7");
+                entity.HasOne(e => e.Event).WithOne(e => e.Recurrence);
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -133,7 +142,7 @@ namespace SoftEng.DataAccess.DataObjects
             modelBuilder.Entity<Task>(entity =>
             {
                 entity.ToTable("Task", "team7");
-
+                entity.HasOne(e => e.Event).WithOne(e => e.Task);
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
                 entity.Property(e => e.IsComplete).HasColumnType("tinyint(1)");
@@ -142,6 +151,8 @@ namespace SoftEng.DataAccess.DataObjects
             modelBuilder.Entity<User>(entity =>
             {
                 entity.ToTable("User", "team7");
+                entity.HasMany(e => e.CompareRequests).WithOne( e => e.ToUserTable);
+                entity.HasMany(e => e.CompareRequests).WithOne(e => e.FromUserTable);
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
