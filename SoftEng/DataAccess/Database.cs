@@ -53,10 +53,11 @@ namespace SoftEng.DataAccess
 
         public IEnumerable<Event> GetUserEvents(User user)
         {
-            var query = context.Users.Include(e => e.Events)
-                                    .Where(e => e.Username == user.Username)
-                                    .FirstOrDefault();
-            return query.Events;
+            //var query = context.Users.Include(e => e.Events)
+            //                        .Where(e => e.Id == user.Id)
+            //                        .FirstOrDefault();
+            var query = context.Events.Where(e => e.UserId == user.Id);
+            return query.ToList();
         }
 
         /*public IEnumerable<Event> GetUserEventsWithDetails(User user)
