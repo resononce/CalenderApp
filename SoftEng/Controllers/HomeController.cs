@@ -50,7 +50,7 @@ namespace SoftEng.Controllers
                 if (_user.Phash == password)
                 {
                     HomeController.user = _user;
-                    _NavBarPartial();
+                    ViewBag.User = _user;
                     return Json(new {
                         status = true,
                         message = "Login Successfull!",
