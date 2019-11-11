@@ -1,0 +1,50 @@
+﻿<div class="modal fade" id="addClassModal" tabindex="-1" role="dialog" aria-labelledby="addClassModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addClassModalLabel">Add Class</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Class Name:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" type="text" id="className"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Location:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" type="text" id="locationName"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Start Time:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" type="time" id="classStartTime"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">End Time:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" type="time" id="classEndTime"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Time:</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" type="datetime" id="classTotalTime" readonly/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success">Add</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

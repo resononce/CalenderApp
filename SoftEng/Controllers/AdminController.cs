@@ -39,8 +39,10 @@ namespace SoftEng.Controllers
                     Time = class_.Time
                 });
 
-            List<Class> model = classList.ToList();
-
+            ClassListModel model = new ClassListModel
+            {
+                ClassList = classList
+            };
             return View(model);
         }
     }

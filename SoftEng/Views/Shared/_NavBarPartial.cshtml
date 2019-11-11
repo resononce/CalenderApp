@@ -1,5 +1,7 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "NavBar";
+    ViewBag.Use = new UserModel();
 }
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -14,7 +16,7 @@
                 <h4>CalendarApp</h4>
             </div>
             <div class="navbar-collapse collapse">
-                @if (true) //@TODO If signed in
+                @if (ViewBag.User != null) //@TODO If signed in
                 {
                     if (false) //@TODO If Admin
                     {
