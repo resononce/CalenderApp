@@ -9,10 +9,10 @@
     <ul>
         @foreach(Event e in this.Model.UserHomeEvents)
         {
-            <li><span>@(e.Name)</span></li>
+            <li class="eventLeft"><span>@(e.Name)</span></li>
             <ul>
-                <li>@(e.Location)</li>
-                <li>@(e.EventDate)</li>
+                <li class="eventLeft">@(e.EventDate.Date)</li>
+                <li class="eventLeft">@(e.EventTime)</li>
             </ul>
         }
     </ul>
