@@ -29,7 +29,8 @@ namespace SoftEng.Controllers
                     HomeController.user = _user;
                     return Json(new {
                         status = true,
-                        message = "Login Successfull!"
+                        message = "Login Successfull!",
+                        isAdmin = _user.IsAdmin == 0 ? false : true
                     });
                 }
                 else

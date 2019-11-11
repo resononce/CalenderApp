@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,20 +53,20 @@ namespace SoftEng.DataAccess
 
         public IEnumerable<Event> GetUserEvents(User user)
         {
-            var query = context.Users.Include(e => e.Events)
-                                    .Where(e => e.Username == user.Username)
-                                    .FirstOrDefault();
-            return query.Events;
+            //var query = context.Users.Include(e => e.Events)
+            //                        .Where(e => e.Id == user.Id)
+            //                        .FirstOrDefault();
+            var query = context.Events.Where(e => e.UserId == user.Id);
+            return query;
         }
 
-        /*public IEnumerable<Event> GetUserEventsWithDetails(User user)
+        public IEnumerable<Event> GetUserEventsWithDetails(User user)
         {
-            var query = context.Users.Include(e => e.Events).ThenInclude(e => e.)
-                                    .Where(e => e.Username == user.Username)
-                                    .FirstOrDefault()
-                                    .Events.in;
-            return query.Events;
-        }*/
+            var query = context.Events.Where(e => e.UserId == user.Id).Include(e => e.Class).ThenInclude( c => c.ClassDay ).ThenInclude( d => d.Day)
+                                                                      .Include(e => e.Recurrence)
+                                                                      .Include(e => e.Task);
+            return query;
+        }
 
         public Task GetTaskById(int id)
         {
