@@ -1,29 +1,38 @@
-﻿@model SoftEng.DataAccess.DataObjects.team7Context
+﻿@model SoftEng.Models.ClassListModel
 @{
     ViewData["Title"] = "Admin Classes Table";
 }
 
 <script type="text/javascript" src="~/js/ClassesTable.js"></script>
 
-<div class="navBar">
-    <a asp-controller="Admin" asp-action="Home">Home</a>
-    <a asp-controller="Admin" asp-action="ClassesTable">Classes Table</a>
-    <a asp-controller="Home" asp-action="Index">Sign Out</a>
+<h2 align="center">Classes Table</h2>
+<div align="right">
+    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#addClassModal">Add Class</button> <br /> <br />
 </div>
-
-<h2>Classes Table</h2>
-
-<table>
+<partial name="AddClassModal"/>
+<table class="table table-bordered table-hover table-striped">
     <tbody>
         <tr>
             <th>Name</th>
             <th>Location</th>
             <th>Start Time</th>
             <th>End Time</th>
-            <th>Time</th>
+            <th>Total Time</th>
+            <th></th>
         </tr>
-
-
-
+        @foreach (var class_ in Model.ClassList)
+        {
+            <tr>
+                <td>@class_.Name</td>
+                <td>@class_.Location</td>
+                <td>@class_.StartDate</td>
+                <td>@class_.EndDate</td>
+                <td>@class_.Time</td>
+                <td>
+                    <button type="button" class="btn btn-warning">Edit</button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteClassModal">Delete</button>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -19,6 +19,29 @@ namespace SoftEng.Controllers
             this.db = new Database(context);
         }
 
+        [HttpGet]
+        public async Task<ActionResult> _NavBarPartial()
+        {
+            //class Wrapper { public UserModel um { get; set; } }
+            UserModel um;
+            if (user != null)
+            {
+                um = new UserModel
+                {
+                    Id = user.Id,
+                    Username = user.Username,
+                    Phash = user.Phash,
+                    IsAdmin = user.IsAdmin
+                };
+            }
+            else
+            {
+                um = null;
+            }
+            ViewBag.User = um;
+            return PartialView("_NavBarPartial", um);
+        }
+
         public ActionResult Validate(string username, string password)
         {
             var _user = db.GetUserByName(username);
@@ -27,6 +50,7 @@ namespace SoftEng.Controllers
                 if (_user.Phash == password)
                 {
                     HomeController.user = _user;
+                    _NavBarPartial();
                     return Json(new {
                         status = true,
                         message = "Login Successfull!",
