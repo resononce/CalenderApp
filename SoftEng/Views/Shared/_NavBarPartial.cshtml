@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "NavBar";
-    ViewBag.User = new UserModel();
+    ViewBag.User = SoftEng.Controllers.HomeController.user;
 }
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -18,7 +18,7 @@
             <div class="navbar-collapse collapse">
                 @if (ViewBag.User != null) //@TODO If signed in
                 {
-                    if (false) //@TODO If Admin
+                    if (ViewBag.User.IsAdmin > 0) //@TODO If Admin
                     {
                         <ul class="nav navbar-nav">
                             <li><a asp-controller="Admin" asp-action="Home">Home</a></li>

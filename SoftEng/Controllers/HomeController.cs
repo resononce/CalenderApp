@@ -23,23 +23,9 @@ namespace SoftEng.Controllers
         public async Task<ActionResult> _NavBarPartial()
         {
             //class Wrapper { public UserModel um { get; set; } }
-            UserModel um;
-            if (user != null)
-            {
-                um = new UserModel
-                {
-                    Id = user.Id,
-                    Username = user.Username,
-                    Phash = user.Phash,
-                    IsAdmin = user.IsAdmin
-                };
-            }
-            else
-            {
-                um = null;
-            }
-            ViewBag.User = um;
-            return PartialView("_NavBarPartial", um);
+            
+            ViewBag.User = user;
+            return PartialView("_NavBarPartial", user);
         }
 
         public ActionResult Validate(string username, string password)
