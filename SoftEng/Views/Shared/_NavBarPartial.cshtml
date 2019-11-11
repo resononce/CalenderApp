@@ -16,9 +16,9 @@
                 <h4>CalendarApp</h4>
             </div>
             <div class="navbar-collapse collapse">
-                @if (ViewBag.User != null) //@TODO If signed in
+                @if (SoftEng.Controllers.HomeController.user != null) //@TODO If signed in
                 {
-                    if (ViewBag.User.IsAdmin > 0) //@TODO If Admin
+                    if (SoftEng.Controllers.HomeController.user.IsAdmin > 0) //@TODO If Admin
                     {
                         <ul class="nav navbar-nav">
                             <li><a asp-controller="Admin" asp-action="Home">Home</a></li>
