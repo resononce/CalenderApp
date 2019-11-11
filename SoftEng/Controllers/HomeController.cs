@@ -92,6 +92,7 @@ namespace SoftEng.Controllers
 
         public IActionResult Index()
         {
+            user = null;
             return View();
         }
 
