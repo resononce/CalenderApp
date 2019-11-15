@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using SoftEng.DataAccess;
 using SoftEng.DataAccess.DataObjects;
 using SoftEng.Models;
+using Newtonsoft.Json;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -88,8 +89,9 @@ namespace SoftEng.Controllers
         
         public ActionResult AddNewTask(string taskName, string startTimeStr,
             string endTimeStr, string taskDateStr, bool recurring,
-            Dictionary<string, bool> daysRecurring, string recurringEndDateStr)
+            Dictionary<int, bool> daysRecurring, string recurringEndDateStr)
         {
+            bool success = false;
             TimeSpan time = TimeSpan.Parse(endTimeStr) - TimeSpan.Parse(startTimeStr);
             DateTime taskDate = DateTime.Parse(taskDateStr);
             
@@ -107,14 +109,30 @@ namespace SoftEng.Controllers
             };
             if(recurring)
             {
-                DateTime recurringEndDate = DateTime.Parse(recurringEndDateStr);
+                DateTime recurEndDate = DateTime.Parse(recurringEndDateStr);
                 evnt.Recurrence = new Recurrence
                 {
                     StartDate = taskDate,
-                    EndDate = recurringEndDate
+                    EndDate = recurEndDate
                 };
+                Event e = Clone<Event>(evnt);
+                success = db.AddEvent(e);
+                if(success)
+                {
+                    for (DateTime d = taskDate; d <= recurEndDate; d = d.AddDays(1))
+                    {
+                        if (daysRecurring[(int)d.DayOfWeek])
+                        {
+                            e = Clone<Event>(evnt);
+                            e.EventDate = d;
+                            db.AddEvent(e);
+                        }
+                    }
+                }
             }
-            bool success = db.AddEvent(evnt);
+            else
+                success = db.AddEvent(evnt);
+
             return Json(new
             {
                 status = success,
@@ -126,5 +144,12 @@ namespace SoftEng.Controllers
                           "\n recurrence: " + recurring
             });
         }
+
+        public static T Clone<T>(T source)
+        {
+            var serialized = JsonConvert.SerializeObject(source);
+            return JsonConvert.DeserializeObject<T>(serialized);
+        }
+
     }
 }

@@ -13,13 +13,13 @@ function addTask() {
     var daysRecurring, recurringEndDate;
     if (recurring) {
         daysRecurring = {
-            "sun" : $('#sunChkBox').is(':checked'),
-            "mon" : $('#monChkBox').is(':checked'),
-            "tue" : $('#tueChkBox').is(':checked'),
-            "wed" : $('#wedChkBox').is(':checked'),
-            "thr" : $('#thrChkBox').is(':checked'),
-            "fri" : $('#friChkBox').is(':checked'),
-            "sat" : $('#satChkBox').is(':checked')
+            0 : $('#sunChkBox').is(':checked'),
+            1 : $('#monChkBox').is(':checked'),
+            2 : $('#tueChkBox').is(':checked'),
+            3 : $('#wedChkBox').is(':checked'),
+            4 : $('#thrChkBox').is(':checked'),
+            5 : $('#friChkBox').is(':checked'),
+            6 : $('#satChkBox').is(':checked')
         }
         recurringEndDate = new Date($('#recurringEndDate').val()).toISOString();
     }
