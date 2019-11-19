@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using SoftEng.DataAccess;
 using SoftEng.DataAccess.DataObjects;
 using SoftEng.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace SoftEng.Controllers
 {
@@ -33,6 +35,9 @@ namespace SoftEng.Controllers
             var _user = db.GetUserByName(username);
             if (_user != null)
             {
+                SHA256 crypt = SHA256.Create();
+                password = Encoding.ASCII.GetString(crypt.ComputeHash(Encoding.ASCII.GetBytes(password)));
+                crypt.Dispose();
                 if (_user.Phash == password)
                 {
                     HomeController.user = _user;
@@ -72,10 +77,14 @@ namespace SoftEng.Controllers
             }
             else
             {
+                SHA256 crypt = SHA256.Create();
+                byte[] hash = crypt.ComputeHash(Encoding.ASCII.GetBytes(password));
+                string phash = Encoding.ASCII.GetString(hash);
+                crypt.Dispose();
                 user = new User {
                     IsAdmin = 0,
                     Username = username,
-                    Phash = password
+                    Phash = phash
                 };
                 bool isSuccessful = db.AddUser(user);
                 return Json(new {

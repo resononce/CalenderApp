@@ -25,7 +25,7 @@ function Register() {
             symbol = true;
         }
     }
-    if (capital && symbol && number && lower && password.length > 8) {
+    //if (capital && symbol && number && lower && password.length > 8) {
 
         //register
         $.ajax({
@@ -47,9 +47,9 @@ function Register() {
                 }
             }
         });
-    } else {
-        error = "Password must have 1 lower case, 1 upper case, 1 symbol, 1 number, and must be 8 or more characters";
-    }
+    //} else {
+    //    error = "Password must have 1 lower case, 1 upper case, 1 symbol, 1 number, and must be 8 or more characters";
+    //}
     if (error != "") {
         alert(error);
     }
