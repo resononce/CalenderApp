@@ -51,16 +51,17 @@ namespace SoftEng.Controllers
 
         public IActionResult Enroll()
         {
-            var classList = db.GetAllClasses().
-                Select(class_ => new Class
-                {
-                    Id = class_.Id,
-                    Name = class_.Name,
-                    Location = class_.Location,
-                    StartDate = class_.StartDate,
-                    EndDate = class_.EndDate,
-                    Time = class_.Time
-                });
+            var classList = db.GetAllClasses().ToList();
+            //Select(class_ => new Class
+            //{
+            //    Id = class_.Id,
+            //    Name = class_.Name,
+            //    Location = class_.Location,
+            //    StartDate = class_.StartDate,
+            //    EndDate = class_.EndDate,
+            //    Time = class_.Time,
+            //    ClassDay = class_.ClassDay
+            //});
 
             ClassListModel model = new ClassListModel
             {
@@ -86,7 +87,7 @@ namespace SoftEng.Controllers
                 message = "Task failed successfully!"
             });
         }
-        
+
         public ActionResult AddNewTask(string taskName, string startTimeStr,
             string endTimeStr, string taskDateStr, bool recurring,
             Dictionary<int, bool> daysRecurring, string recurringEndDateStr)
@@ -94,7 +95,7 @@ namespace SoftEng.Controllers
             bool success = false;
             TimeSpan time = TimeSpan.Parse(endTimeStr) - TimeSpan.Parse(startTimeStr);
             DateTime taskDate = DateTime.Parse(taskDateStr);
-            
+
             Event evnt = new Event
             {
                 Name = taskName,
@@ -107,7 +108,7 @@ namespace SoftEng.Controllers
                     IsComplete = 0
                 }
             };
-            if(recurring)
+            if (recurring)
             {
                 DateTime recurEndDate = DateTime.Parse(recurringEndDateStr);
                 evnt.Recurrence = new Recurrence
@@ -117,7 +118,7 @@ namespace SoftEng.Controllers
                 };
                 Event e = Clone<Event>(evnt);
                 success = db.AddEvent(e);
-                if(success)
+                if (success)
                 {
                     for (DateTime d = taskDate; d <= recurEndDate; d = d.AddDays(1))
                     {
@@ -149,6 +150,29 @@ namespace SoftEng.Controllers
         {
             var serialized = JsonConvert.SerializeObject(source);
             return JsonConvert.DeserializeObject<T>(serialized);
+        }
+
+        public JsonResult GetClassById(int id)
+        {
+            Class selectedClass = this.db.GetClassById(id);
+            foreach(ClassDay cd in selectedClass.ClassDay)
+            {
+                cd.Class = null;
+            }
+            return Json(selectedClass);
+            //return Json( new
+            //{
+            //    selectedClass = new
+            //    {
+            //        Id = selectedClass.Id,
+            //        Location = selectedClass.Location,
+            //        Name = selectedClass.Name,
+            //        StartDate = selectedClass.StartDate,
+            //        EndDate = selectedClass.EndDate,
+            //        Time = selectedClass.Time,
+            //        ClassDays = classDays
+            //    }
+            //});
         }
 
     }

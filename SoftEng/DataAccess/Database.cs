@@ -45,10 +45,12 @@ namespace SoftEng.DataAccess
         // Get All Classes
         public IEnumerable<Class> GetAllClasses()
         {
-            var query = from class_ in context.Classes
-                        select class_;
-            IEnumerable<Class> classList = query.ToList();
-            return classList;
+            //var query = from class_ in context.Classes
+            //            select class_;
+            //IEnumerable<Class> classList = query.ToList();
+            //return classList;
+            var query = context.Classes.Include(c => c.ClassDay);
+            return query;
         }
 
         public IEnumerable<Event> GetUserEvents(User user)
@@ -80,7 +82,7 @@ namespace SoftEng.DataAccess
         }
         public Class GetClassById(int id)
         {
-            var query = context.Classes.Where(t => t.Id == id);
+            var query = context.Classes.Include(t => t.ClassDay).Include(t => t.ClassDay.FirstOrDefault().Day).Where(t => t.Id == id);
             return query.FirstOrDefault();
         }
 

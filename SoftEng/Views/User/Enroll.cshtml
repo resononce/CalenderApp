@@ -1,8 +1,14 @@
 ﻿@model SoftEng.Models.ClassListModel
+@using SoftEng.DataAccess.DataObjects;
 @{
     ViewData["Title"] = "User Enroll";
 }
 
+<script>
+var fullUrl = '@Url.Content("~")';
+</script>
+
+<script type="text/javascript" src="~/js/Enroll.js"></script>
 <div align="center">
     <h2>Enroll</h2>
 </div>
@@ -11,12 +17,34 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">Class:</label>
             <div class="col-sm-3">
-                <select class="form-control" id="selectClass">
+                <select class="form-control" id="selectClass" onchange="changeClass()">
                     @foreach (var cl in Model.ClassList) {
-                        <option>@cl.Name</option>
+                        <option value="@(cl.Id)">@cl.Name</option>
                     }
                 </select>
             </div>
+        </div>
+        <div class="parameters">
+            <label>Location:</label><span id="location">@(Model.ClassList.FirstOrDefault().Location)</span> <br/>
+            <label>Dates:</label><span id="dateRange">@(Model.ClassList.FirstOrDefault().StartDate.ToShortDateString())-@(Model.ClassList.FirstOrDefault().EndDate.ToShortDateString())</span> <br/>
+            @if (this.Model.ClassList.FirstOrDefault().ClassDay != null)
+            {
+                <label>Days Of Week:</label>
+                <span id="daysOfWeek">
+                    @foreach (ClassDay cd in this.Model.ClassList.FirstOrDefault().ClassDay)
+                    {
+                        if (cd == this.Model.ClassList.FirstOrDefault().ClassDay.FirstOrDefault())
+                        {
+                            @(cd.DayOfWeek)
+                        }
+                        else
+                        {
+                            @(", " + cd.DayOfWeek)
+                        }
+                    }
+                </span> <br/>
+            }
+            <label>Time:</label><span id="timeSpan">@(Model.ClassList.FirstOrDefault().Time.ToString())</span>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label"></label>
