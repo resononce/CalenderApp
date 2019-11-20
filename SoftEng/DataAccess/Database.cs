@@ -49,7 +49,7 @@ namespace SoftEng.DataAccess
             //            select class_;
             //IEnumerable<Class> classList = query.ToList();
             //return classList;
-            var query = context.Classes.Include(c => c.ClassDay);
+            var query = context.Classes.Include(c => c.ClassDay).ThenInclude(d => d.Day);
             return query;
         }
 
@@ -82,7 +82,7 @@ namespace SoftEng.DataAccess
         }
         public Class GetClassById(int id)
         {
-            var query = context.Classes.Include(t => t.ClassDay).Include(t => t.ClassDay.FirstOrDefault().Day).Where(t => t.Id == id);
+            var query = context.Classes.Include(c => c.ClassDay).ThenInclude(d => d.Day).Where(c => c.Id == id);
             return query.FirstOrDefault();
         }
 

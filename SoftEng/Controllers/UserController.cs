@@ -158,6 +158,7 @@ namespace SoftEng.Controllers
             foreach(ClassDay cd in selectedClass.ClassDay)
             {
                 cd.Class = null;
+                cd.Day.ClassDay = null;
             }
             return Json(selectedClass);
             //return Json( new

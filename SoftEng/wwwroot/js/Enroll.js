@@ -19,9 +19,9 @@
             var daysOfWeek = "";
             for (var i = 0; i < result.classDay.length; i++) {
                 if (daysOfWeek == "") {
-                    daysOfWeek = daysOfWeek + result.classDay[i].dayOfWeek;
+                    daysOfWeek = daysOfWeek + result.classDay[i].day.day1;
                 } else {
-                    daysOfWeek = daysOfWeek + ", " + result.classDay[i].dayOfWeek;
+                    daysOfWeek = daysOfWeek + ", " + result.classDay[i].day.day1;
                 }
             }
             $("#daysOfWeek").html(daysOfWeek);

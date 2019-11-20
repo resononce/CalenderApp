@@ -35,11 +35,11 @@ var fullUrl = '@Url.Content("~")';
                     {
                         if (cd == this.Model.ClassList.FirstOrDefault().ClassDay.FirstOrDefault())
                         {
-                            @(cd.DayOfWeek)
+                            @(cd.Day.Day1)
                         }
                         else
                         {
-                            @(", " + cd.DayOfWeek)
+                            @(", " + cd.Day.Day1)
                         }
                     }
                 </span> <br/>
