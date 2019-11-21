@@ -176,5 +176,53 @@ namespace SoftEng.Controllers
             //});
         }
 
+        public JsonResult NewEnrollment(int id)
+        {
+            Class selectedClass = this.db.GetClassById(id);
+            if(selectedClass == null)
+            {
+                return Json(new {
+                    status = false,
+                    message = "class id was not found"
+                });
+            }
+            Event evnt = new Event
+            {
+                Name = selectedClass.Name,
+                UserId = HomeController.user.Id,
+                Location = selectedClass.Location,
+                EventDate = selectedClass.StartDate,
+                EventTime = selectedClass.Time,
+                Recurrence = new Recurrence
+                {
+                    EndDate = selectedClass.EndDate,
+                    StartDate = selectedClass.StartDate
+                }
+            };
+            Event e;
+            bool success = true;
+            for (DateTime d = evnt.EventDate; d <= evnt.Recurrence.EndDate; d = d.AddDays(1))
+            {
+                foreach (ClassDay cd in selectedClass.ClassDay)
+                {
+                    if ((int)d.DayOfWeek == cd.DayOfWeek)
+                    {
+                        e = Clone<Event>(evnt);
+                        e.EventDate = d;
+                        if(!db.AddEvent(e))
+                            success = false;
+                    }
+                }
+            }
+            return Json(new
+            {
+                status = success,
+                message = "name: " + evnt.Name +
+              "\n user id: " + evnt.UserId +
+              "\n location: " + evnt.Location +
+              "\n event date: " + evnt.EventDate +
+              "\n event time: " + evnt.EventTime
+            });
+        }
     }
 }

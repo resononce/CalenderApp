@@ -29,3 +29,30 @@
         }
     });
 };
+
+function enroll() {
+    classId = $("#selectClass").val();
+    if (classId === NaN) {
+        alert("nope");
+        return;
+    }
+    $.ajax({
+        type: "POST",
+        url: fullUrl + "NewEnrollment",
+        data: {
+            id: classId
+        },
+        error: function (result) {
+            alert("There is a Problem, Try Again! ");
+        },
+        success: function (result) {
+            if (result.status == true) {
+                alert("success!");
+                window.location.href = fullUrl + "Home/Main";
+            }
+            else {
+                alert("could not add class: \n" + result.message);
+            }
+        }
+    });
+};
