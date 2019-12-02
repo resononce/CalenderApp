@@ -3,8 +3,8 @@
     $("#addClassModal button[type=submit]").html("Add");
     $("#className").val("");
     $("#locationName").val("");
-    $("#classStartDate").date._clearDate(this);
-    $("#classEndDate").date._clearDate(this);
+    $("#classStartDate").val("");
+    $("#classEndDate").val("");
     $("#classStartTime").val("");
     $("#classEndTime").val("");
 }
@@ -24,6 +24,10 @@ function toggleEditClass(classId) {
         success: function (result) {
             $("#className").val(result.className);
             $("#locationName").val(result.classLocation);
+            console.log(result.classStartDate);
+            $("#classStartDate").val(result.classStartDate);
+            $("#classEndDate").val(result.classEndDate);
+            $("#classTotalTime").val(result.classTime);
         }
     });
 }

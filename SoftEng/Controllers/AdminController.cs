@@ -53,9 +53,9 @@ namespace SoftEng.Controllers
             {
                 className = class_.Name,
                 classLocation = class_.Location,
-                classStartDate = class_.StartDate,
-                classEndDate = class_.EndDate,
-                classTime = class_.Time
+                classStartDate = class_.StartDate.ToString("yyyy-MM-dd"),
+                classEndDate = class_.EndDate.ToString("yyyy-MM-dd"),
+                classTime = class_.Time.ToString()
             });
         }
     }

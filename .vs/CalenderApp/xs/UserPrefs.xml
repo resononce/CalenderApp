@@ -1,12 +1,11 @@
 ﻿<Properties StartupConfiguration="{60E0F7CD-E0FC-49B4-A206-2B3A787F81DB}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SoftEng/Views/Admin/AddClassModal.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SoftEng/Controllers/AdminController.cs">
     <Files>
-      <File FileName="SoftEng/Views/User/Home.cshtml" Line="14" Column="56" />
-      <File FileName="SoftEng/Views/Admin/ClassesTable.cshtml" Line="35" Column="76" />
-      <File FileName="SoftEng/wwwroot/js/ClassesTable.js" Line="19" Column="13" />
-      <File FileName="SoftEng/Views/Admin/AddClassModal.cshtml" Line="1" Column="1" />
-      <File FileName="SoftEng/Controllers/AdminController.cs" Line="51" Column="1" />
-      <File FileName="SoftEng/DataAccess/Database.cs" Line="81" Column="22" />
+      <File FileName="SoftEng/Views/Admin/ClassesTable.cshtml" Line="35" Column="37" />
+      <File FileName="SoftEng/Views/Admin/AddClassModal.cshtml" Line="62" Column="7" />
+      <File FileName="SoftEng/Controllers/AdminController.cs" Line="58" Column="41" />
+      <File FileName="SoftEng/wwwroot/js/ClassesTable.js" Line="30" Column="49" />
+      <File FileName="SoftEng/DataAccess/Database.cs" Line="142" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,16 +15,16 @@
               <Node name="Dependencies" expanded="True">
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="AdminController.cs" selected="True" />
+              </Node>
               <Node name="DataAccess" expanded="True">
                 <Node name="DataObjects" expanded="True" />
               </Node>
               <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Admin" expanded="True">
-                  <Node name="AddClassModal.cshtml" selected="True" />
-                </Node>
+                <Node name="Admin" expanded="True" />
                 <Node name="Home" expanded="True" />
                 <Node name="Shared" expanded="True" />
                 <Node name="User" expanded="True" />
