@@ -4,35 +4,43 @@
 }
 
 <script type="text/javascript" src="~/js/ClassesTable.js"></script>
+<script>
+    var fullUrl = '@Url.Content("~")';
+</script>
+
+<partial name="AdminNavBar">
 
 <h2 align="center">Classes Table</h2>
 <div align="right">
-    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#addClassModal">Add Class</button> <br /> <br />
+    <button id="addClass" type="submit" class="btn btn-success" data-toggle="modal" data-target="#addClassModal" onclick="toggleAddClass()">Add Class</button> <br /> <br />
 </div>
-<partial name="AddClassModal"/>
 <table class="table table-bordered table-hover table-striped">
     <tbody>
         <tr>
+            <th>Id</th>
             <th>Name</th>
             <th>Location</th>
-            <th>Start Time</th>
-            <th>End Time</th>
+            <th>Start Date</th>
+            <th>End Date</th>
             <th>Total Time</th>
             <th></th>
         </tr>
         @foreach (var class_ in Model.ClassList)
         {
             <tr>
+                <td>@class_.Id</td>
                 <td>@class_.Name</td>
                 <td>@class_.Location</td>
-                <td>@class_.StartDate</td>
-                <td>@class_.EndDate</td>
+                <td>@class_.StartDate.ToShortDateString()</td>
+                <td>@class_.EndDate.ToShortDateString()</td>
                 <td>@class_.Time</td>
                 <td>
-                    <button type="button" class="btn btn-warning">Edit</button>
+                    <button type="button" class="editClass btn btn-warning" data-toggle="modal" data-target="#addClassModal" onclick="toggleEditClass(@class_.Id)">Edit</button>
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteClassModal">Delete</button>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<partial name="AddClassModal"/>
+<partial name="DeleteClassModal"/>

@@ -4,15 +4,17 @@
 }
 @model SoftEng.Models.UserHomeModel
 
-<div align="center">
-    <h2>User Home</h2>
+<partial name="UserNavBar"/>
+
+<div>
+    <h2 align="center">User Home</h2>
     <ul>
         @foreach(Event e in this.Model.UserHomeEvents)
         {
-            <li class="eventLeft"><span>@(e.Name)</span></li>
+            <li><strong><span>@(e.Name)</span></strong></li>
             <ul>
-                <li class="eventLeft">@(e.EventDate.Date)</li>
-                <li class="eventLeft">@(e.EventTime)</li>
+                <li>Location: @(e.Location)</li>
+                <li>Date: @(e.EventDate.ToShortDateString())</li>
             </ul>
         }
     </ul>

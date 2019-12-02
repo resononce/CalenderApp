@@ -45,5 +45,18 @@ namespace SoftEng.Controllers
             };
             return View(model);
         }
+
+        public JsonResult EditClass(int id)
+        {
+            var class_ = db.GetClassById(id);
+            return Json(new
+            {
+                className = class_.Name,
+                classLocation = class_.Location,
+                classStartDate = class_.StartDate,
+                classEndDate = class_.EndDate,
+                classTime = class_.Time
+            });
+        }
     }
 }

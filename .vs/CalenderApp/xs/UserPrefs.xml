@@ -1,23 +1,21 @@
 ﻿<Properties StartupConfiguration="{60E0F7CD-E0FC-49B4-A206-2B3A787F81DB}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SoftEng/Views/Admin/ClassesTable.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SoftEng/Views/Admin/AddClassModal.cshtml">
     <Files>
-      <File FileName="SoftEng/wwwroot/js/Register.js" Line="73" Column="65" />
-      <File FileName="SoftEng/Controllers/HomeController.cs" Line="41" Column="1" />
-      <File FileName="SoftEng/Views/Shared/_NavBarPartial.cshtml" Line="1" Column="1" />
-      <File FileName="SoftEng/Views/Shared/_Layout.cshtml" Line="22" Column="11" />
-      <File FileName="SoftEng/Controllers/AdminController.cs" Line="31" Column="45" />
-      <File FileName="SoftEng/Controllers/UserController.cs" Line="1" Column="1" />
-      <File FileName="SoftEng/Views/User/WeeklyView.cshtml" Line="268" Column="7" />
-      <File FileName="SoftEng/wwwroot/js/WeeklyView.js" Line="1" Column="1" />
-      <File FileName="SoftEng/Views/Admin/DeleteClassModal.cshtml" Line="11" Column="20" />
-      <File FileName="SoftEng/Views/Admin/ClassesTable.cshtml" Line="1" Column="1" />
+      <File FileName="SoftEng/Views/User/Home.cshtml" Line="14" Column="56" />
+      <File FileName="SoftEng/Views/Admin/ClassesTable.cshtml" Line="35" Column="76" />
+      <File FileName="SoftEng/wwwroot/js/ClassesTable.js" Line="19" Column="13" />
+      <File FileName="SoftEng/Views/Admin/AddClassModal.cshtml" Line="1" Column="1" />
+      <File FileName="SoftEng/Controllers/AdminController.cs" Line="51" Column="1" />
+      <File FileName="SoftEng/DataAccess/Database.cs" Line="81" Column="22" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CalenderApp" expanded="True">
             <Node name="SoftEng" expanded="True">
-              <Node name="Dependencies" expanded="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
               <Node name="Controllers" expanded="True" />
               <Node name="DataAccess" expanded="True">
                 <Node name="DataObjects" expanded="True" />
@@ -26,7 +24,7 @@
               <Node name="Properties" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Admin" expanded="True">
-                  <Node name="ClassesTable.cshtml" selected="True" />
+                  <Node name="AddClassModal.cshtml" selected="True" />
                 </Node>
                 <Node name="Home" expanded="True" />
                 <Node name="Shared" expanded="True" />
@@ -49,9 +47,7 @@
   <MonoDevelop.Ide.ItemProperties.SoftEng PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/ChengXiong/Documents/UWOClasses/ComputerScience/Software Engineer I/Project/CalendarApp/CalenderApp/SoftEng/wwwroot/js/Register.js" relfile="SoftEng/wwwroot/js/Register.js" line="72" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
