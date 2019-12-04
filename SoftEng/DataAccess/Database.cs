@@ -53,6 +53,11 @@ namespace SoftEng.DataAccess
             return query;
         }
 
+        internal object GetEventsByClassId()
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Event> GetUserEvents(User user)
         {
             //var query = context.Users.Include(e => e.Events)
@@ -146,6 +151,13 @@ namespace SoftEng.DataAccess
             var query = context.Events.Where( c => c.EventDate >= start)
                                        .Where( c => c.EventDate <= end);
             return query;
+        }
+
+        // Get Events by classId
+        public Event GetEventsByClassId(int classId)
+        {
+            var query = context.Events.Where(c => c.ClassId == classId);
+            return query.FirstOrDefault();
         }
     }
 }
