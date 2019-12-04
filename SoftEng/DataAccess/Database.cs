@@ -62,6 +62,15 @@ namespace SoftEng.DataAccess
             return query;
         }
 
+        public IEnumerable<Event> GetUserEventsByDate(User user, DateTime startDate, DateTime endDate)
+        {
+            //var query = context.Users.Include(e => e.Events)
+            //                        .Where(e => e.Id == user.Id)
+            //                        .FirstOrDefault();
+            var query = context.Events.Where(e => e.UserId == user.Id).Where(e => e.EventDate >= startDate).Where(e => e.EventDate <= endDate).OrderBy(e => e.EventDate).ThenBy(e => e.EventTime);
+            return query;
+        }
+
         public IEnumerable<Event> GetUserEventsWithDetails(User user)
         {
             var query = context.Events.Where(e => e.UserId == user.Id).Include(e => e.Class).ThenInclude( c => c.ClassDay ).ThenInclude( d => d.Day)

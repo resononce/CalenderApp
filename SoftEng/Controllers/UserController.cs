@@ -29,8 +29,12 @@ namespace SoftEng.Controllers
             if (HomeController.user != null && HomeController.user.IsAdmin == 0)
             {
                 UserHomeModel model = new UserHomeModel();
+                DateTime startDate = DateTime.Now.Date;
+                DateTime endDate = startDate.AddDays(1);
+                endDate = endDate.AddSeconds(-1);
+                
                 model.UserHomeEvents = new List<Event>();
-                model.UserHomeEvents = this.db.GetUserEvents(HomeController.user).ToList();
+                model.UserHomeEvents = this.db.GetUserEventsByDate(HomeController.user, startDate, endDate).ToList();
                 return View(model);
             }
             else
