@@ -96,6 +96,7 @@ namespace SoftEng.Controllers
             string endTimeStr, string taskDateStr, bool recurring,
             Dictionary<int, bool> daysRecurring, string recurringEndDateStr)
         {
+
             bool success = false;
             TimeSpan time = TimeSpan.Parse(endTimeStr) - TimeSpan.Parse(startTimeStr);
             DateTime taskDate = DateTime.Parse(taskDateStr);
@@ -121,23 +122,21 @@ namespace SoftEng.Controllers
                     EndDate = recurEndDate
                 };
                 Event e = Clone<Event>(evnt);
-                success = db.AddEvent(e);
-                if (success)
+                success = true;
+                DateTime weekSpan = taskDate.AddDays(7);
+                for (DateTime d = taskDate; d <= weekSpan; d = d.AddDays(1))
                 {
-                    for (DateTime d = taskDate; d <= recurEndDate; d = d.AddDays(1))
+                    if (daysRecurring[(int)d.DayOfWeek])
                     {
-                        if (daysRecurring[(int)d.DayOfWeek])
-                        {
-                            e = Clone<Event>(evnt);
-                            e.EventDate = d;
-                            db.AddEvent(e);
-                        }
+                        e = Clone<Event>(evnt);
+                        e.EventDate = d;
+                        if(!db.AddEvent(e))
+                            success = false;
                     }
                 }
             }
             else
                 success = db.AddEvent(evnt);
-
             return Json(new
             {
                 status = success,
@@ -205,7 +204,8 @@ namespace SoftEng.Controllers
             };
             Event e;
             bool success = true;
-            for (DateTime d = evnt.EventDate; d <= evnt.Recurrence.EndDate; d = d.AddDays(1))
+            DateTime weekSpan = evnt.EventDate.AddDays(7);
+            for (DateTime d = evnt.EventDate; d <= weekSpan; d = d.AddDays(1))
             {
                 foreach (ClassDay cd in selectedClass.ClassDay)
                 {
