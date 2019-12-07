@@ -211,12 +211,12 @@ namespace SoftEng.Controllers
             bool success = false;
 
             DateTime weekSpan;
-            if (evnt.EventDate.AddDays(7) > selectedClass.EndDate)
+            if (evnt.EventDate.AddDays(6) > selectedClass.EndDate)
                 weekSpan = selectedClass.EndDate;
             else
-                weekSpan = evnt.EventDate.AddDays(7);
+                weekSpan = evnt.EventDate.AddDays(6);
 
-            for (DateTime d = evnt.EventDate; d < weekSpan; d = d.AddDays(1))
+            for (DateTime d = evnt.EventDate; d <= weekSpan; d = d.AddDays(1))
             {
                 foreach (ClassDay cd in selectedClass.ClassDay)
                 {

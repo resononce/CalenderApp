@@ -77,19 +77,26 @@ function toggleEditClass(classId) {
 }
 
 function addOrUpdateClass(addOrUpdate) {
-    var _class = getFormData();
     $.ajax({
         type: "POST",
         url: fullUrl + addOrUpdate,
         data: {
-            name: _class.name,
-            id: parseInt(_class.id),
-            location: _class.location,
-            startDateStr: _class.startDate,
-            endDateStr: _class.endDate,
-            days: _class.days,
-            startTime: _class.startTime,
-            endTime: _class.endTime
+            name: $("#className").val(),
+            id: $("#classId").val(),
+            location: $("#locationName").val(),
+            startDateStr: $("#classStartDate").val(),
+            endDateStr: $("#classEndDate").val(),
+            days: {
+                1: $('#sun').is(':checked'),
+                2: $('#mon').is(':checked'),
+                3: $('#tue').is(':checked'),
+                4: $('#wed').is(':checked'),
+                5: $('#thr').is(':checked'),
+                6: $('#fri').is(':checked'),
+                7: $('#sat').is(':checked')
+            },
+            startTime: $("#classStartTime").val(),
+            endTime: $("#classEndTime").val()
         },
         error: function (xhr, err) {
             var responseTitle = $(xhr.responseText).filter('title').get(0);
@@ -108,22 +115,11 @@ function addOrUpdateClass(addOrUpdate) {
 }
 
 function deleteClass(classId) {
-    alert("id:" + classId);
-}
-
-/*function addClass() {
-    var _class = getFormData();
     $.ajax({
         type: "POST",
-        url: fullUrl + "AddNewClass",
+        url: fullUrl + "DeleteClass",
         data: {
-            name: _class.name,
-            location: _class.location,
-            startDateStr: _class.startDate,
-            endDateStr: _class.endDate,
-            days: _class.days,
-            startTime: _class.startTime,
-            endTime: _class.endTime
+            id: classId
         },
         error: function (xhr, err) {
             var responseTitle = $(xhr.responseText).filter('title').get(0);
@@ -135,31 +131,10 @@ function deleteClass(classId) {
                 window.location.href = fullUrl + "Home/Main";
             }
             else {
-                alert("could not add task: \n" + result.message);
+                alert("could not delete class: \n" + result.message);
             }
         }
     });
-}*/
-
-function getFormData() {
-    return _class = {
-        name: $("#className").val(),
-        id: $("#classId").val(),
-        location: $("#locationName").val(),
-        startDate: $("#classStartDate").val(),
-        endDate: $("#classEndDate").val(),
-        days: {
-            1: $('#sun').is(':checked'),
-            2: $('#mon').is(':checked'),
-            3: $('#tue').is(':checked'),
-            4: $('#wed').is(':checked'),
-            5: $('#thr').is(':checked'),
-            6: $('#fri').is(':checked'),
-            7: $('#sat').is(':checked')
-        },
-        startTime: $("#classStartTime").val(),
-        endTime: $("#classEndTime").val()
-    }
 }
 
 function formatErrorMessage(jqXHR, exception) {
@@ -179,4 +154,10 @@ function formatErrorMessage(jqXHR, exception) {
     } else {
         return ('Uncaught Error.\n' + jqXHR.responseText);
     }
+}
+
+function setDeleteFunction(classId) {
+    $('#deleteClassModal').on('click', '#delete_btn', function (e) {
+        deleteClass(classId);
+    });
 }

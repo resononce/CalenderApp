@@ -36,7 +36,7 @@
                 <td>@class_.Time</td>
                 <td>
                     <button type="button" class="editClass btn btn-warning" data-toggle="modal" data-target="#addClassModal" onclick="toggleEditClass(@class_.Id)">Edit</button>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteClassModal">Delete</button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteClassModal" onclick="setDeleteFunction(@class_.Id)" >Delete</button>
                 </td>
             </tr>
         }

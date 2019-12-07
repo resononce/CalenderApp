@@ -26,7 +26,8 @@ var fullUrl = '@Url.Content("~")';
         </div>
         <div class="parameters">
             <label>Location:</label><span id="location">@(Model.ClassList.FirstOrDefault().Location)</span> <br/>
-            <label>Dates:</label><span id="dateRange">@(Model.ClassList.FirstOrDefault().StartDate.ToShortDateString())-@(Model.ClassList.FirstOrDefault().EndDate.ToShortDateString())</span> <br/>
+            <label>Dates:</label><span id="dateRange">@(Model.ClassList.FirstOrDefault().StartDate.ToShortDateString()) - 
+                                                      @(Model.ClassList.FirstOrDefault().EndDate.ToShortDateString())</span> <br/>
             @if (this.Model.ClassList.FirstOrDefault().ClassDay != null)
             {
                 <label>Days Of Week:</label>

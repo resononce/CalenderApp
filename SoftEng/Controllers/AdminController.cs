@@ -113,10 +113,13 @@ namespace SoftEng.Controllers
                                 days, startTime, endTime);
         }
 
-        public bool DeleteClass(int id)
+        public JsonResult DeleteClass(int id)
         {
             db.DeleteClass(id);
-            return true;
+            return Json(new
+            {
+                status = true,
+                message = "Deleted classId:" + id });
         }
     }
 }
