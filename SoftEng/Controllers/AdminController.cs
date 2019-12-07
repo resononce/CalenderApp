@@ -46,9 +46,37 @@ namespace SoftEng.Controllers
             return View(model);
         }
 
-        public bool AddClass()
+        public JsonResult AddNewClass(string name, int id, string location, string startDateStr, 
+                            string endDateStr, Dictionary<int, bool> days,
+                            string startTime, string endTime)
         {
-            return true;
+            List<ClassDay> classDays = new List<ClassDay>();
+            foreach (KeyValuePair<int, bool> entry in days)
+            {
+                if (entry.Value)
+                    classDays.Add(new ClassDay
+                    {
+                        DayOfWeek = entry.Key
+                    });
+            }
+            Class _class = new Class
+            {
+                Name = name,
+                Location = location,
+                StartDate = DateTime.Parse(startDateStr),
+                EndDate = DateTime.Parse(endDateStr),
+                ClassDay = classDays,
+                Time = TimeSpan.Parse(endTime) - TimeSpan.Parse(startTime),
+            };
+            bool success = db.AddClass(_class);
+            return Json(new
+            {
+                status = success,
+                message = "name: " + name +
+              "\n location: " + location +
+              "\n class date: " + _class.StartDate +
+              "\n class time: " + _class.StartDate
+            });
         }
 
         public JsonResult EditClass(int id)
@@ -76,14 +104,19 @@ namespace SoftEng.Controllers
             });
         }
 
-        public bool UpdateClass()
+        public JsonResult UpdateClass(string name, int id, string location, string startDateStr,
+                            string endDateStr, Dictionary<int, bool> days,
+                            string startTime, string endTime)
         {
-            return true;
+            DeleteClass(id);
+            return AddNewClass(name, id, location, startDateStr, endDateStr, 
+                                days, startTime, endTime);
         }
 
-        public bool DeleteClass()
+        public bool DeleteClass(int id)
         {
-            return false;
+            db.DeleteClass(id);
+            return true;
         }
     }
 }

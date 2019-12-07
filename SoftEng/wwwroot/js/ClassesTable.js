@@ -7,6 +7,10 @@
     $("#classEndDate").val("");
     $("#classStartTime").val("");
     $("#classEndTime").val("");
+    $(document).off('click', '#submit_btn');
+    $(document).on('click', '#submit_btn', function () {
+        addOrUpdateClass("AddNewClass");
+    })
 }
 
 function toggleEditClass(classId) {
@@ -30,6 +34,7 @@ function toggleEditClass(classId) {
         },
         success: function (result) {
             $("#className").val(result.className);
+            $("#classId").val(classId);
             $("#locationName").val(result.classLocation);
             $("#classStartDate").val(result.classStartDate);
             $("#classEndDate").val(result.classEndDate);
@@ -61,11 +66,117 @@ function toggleEditClass(classId) {
             $("#classStartTime").val(result.classStartTime);
             $("#classEndTime").val(result.classEndTime);
             $("#classTotalTime").val(result.classTime);
+        },
+        complete: function () {
+            $(document).off('click', '#submit_btn');
+            $(document).on('click', '#submit_btn', function () {
+                addOrUpdateClass("UpdateClass");
+            })
         }
     });
 }
 
-function updateClass() {
+function addOrUpdateClass(addOrUpdate) {
+    var _class = getFormData();
+    $.ajax({
+        type: "POST",
+        url: fullUrl + addOrUpdate,
+        data: {
+            name: _class.name,
+            id: parseInt(_class.id),
+            location: _class.location,
+            startDateStr: _class.startDate,
+            endDateStr: _class.endDate,
+            days: _class.days,
+            startTime: _class.startTime,
+            endTime: _class.endTime
+        },
+        error: function (xhr, err) {
+            var responseTitle = $(xhr.responseText).filter('title').get(0);
+            alert($(responseTitle).text() + "\n" + formatErrorMessage(xhr, err));
+        },
+        success: function (result) {
+            if (result.status == true) {
+                alert("success!");
+                window.location.href = fullUrl + "Home/Main";
+            }
+            else {
+                alert("could not add task: \n" + result.message);
+            }
+        }
+    });
+}
 
+function deleteClass(classId) {
+    alert("id:" + classId);
+}
 
+/*function addClass() {
+    var _class = getFormData();
+    $.ajax({
+        type: "POST",
+        url: fullUrl + "AddNewClass",
+        data: {
+            name: _class.name,
+            location: _class.location,
+            startDateStr: _class.startDate,
+            endDateStr: _class.endDate,
+            days: _class.days,
+            startTime: _class.startTime,
+            endTime: _class.endTime
+        },
+        error: function (xhr, err) {
+            var responseTitle = $(xhr.responseText).filter('title').get(0);
+            alert($(responseTitle).text() + "\n" + formatErrorMessage(xhr, err));
+        },
+        success: function (result) {
+            if (result.status == true) {
+                alert("success!");
+                window.location.href = fullUrl + "Home/Main";
+            }
+            else {
+                alert("could not add task: \n" + result.message);
+            }
+        }
+    });
+}*/
+
+function getFormData() {
+    return _class = {
+        name: $("#className").val(),
+        id: $("#classId").val(),
+        location: $("#locationName").val(),
+        startDate: $("#classStartDate").val(),
+        endDate: $("#classEndDate").val(),
+        days: {
+            1: $('#sun').is(':checked'),
+            2: $('#mon').is(':checked'),
+            3: $('#tue').is(':checked'),
+            4: $('#wed').is(':checked'),
+            5: $('#thr').is(':checked'),
+            6: $('#fri').is(':checked'),
+            7: $('#sat').is(':checked')
+        },
+        startTime: $("#classStartTime").val(),
+        endTime: $("#classEndTime").val()
+    }
+}
+
+function formatErrorMessage(jqXHR, exception) {
+
+    if (jqXHR.status === 0) {
+        return ('Not connected.\nPlease verify your network connection.');
+    } else if (jqXHR.status == 404) {
+        return ('The requested page not found. [404]');
+    } else if (jqXHR.status == 500) {
+        return ('Internal Server Error [500].');
+    } else if (exception === 'parsererror') {
+        return ('Requested JSON parse failed.');
+    } else if (exception === 'timeout') {
+        return ('Time out error.');
+    } else if (exception === 'abort') {
+        return ('Ajax request aborted.');
+    } else {
+        return ('Uncaught Error.\n' + jqXHR.responseText);
+    }
 }

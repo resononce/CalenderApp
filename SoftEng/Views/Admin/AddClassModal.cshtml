@@ -12,7 +12,8 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Class Name:</label>
                         <div class="col-sm-5">
-                            <input class="form-control" type="text" id="className"/>
+                            <input class="form-control" type="text" id="className" required />
+                            <input class="hidden" type="hidden" id="classId" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -24,13 +25,13 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Start Date:</label>
                         <div class="col-sm-5">
-                            <input class="form-control" type="date" id="classStartDate"/>
+                            <input class="form-control" type="date" id="classStartDate" required />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">End Date:</label>
                         <div class="col-sm-5">
-                            <input class="form-control" type="date" id="classEndDate"/>
+                            <input class="form-control" type="date" id="classEndDate" required />
                         </div>
                     </div>
                     <div>
@@ -60,13 +61,13 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Start Time:</label>
                         <div class="col-sm-5">
-                            <input class="form-control" type="time" id="classStartTime"/>
+                            <input class="form-control" type="time" id="classStartTime" required />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">End Time:</label>
                         <div class="col-sm-5">
-                            <input class="form-control" type="time" id="classEndTime"/>
+                            <input class="form-control" type="time" id="classEndTime" required />
                         </div>
                     </div>
                     <div class="form-group">
@@ -78,7 +79,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-success">Add</button>
+                <button type="submit" class="btn btn-success" id="submit_btn">Add</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>
