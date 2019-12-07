@@ -123,10 +123,14 @@ namespace SoftEng.Controllers
                 };
                 Event e = Clone<Event>(evnt);
                 success = true;
-                DateTime weekSpan = taskDate.AddDays(7);
-                for (DateTime d = taskDate; d <= weekSpan; d = d.AddDays(1))
+                DateTime weekSpan;
+                if (evnt.EventDate.AddDays(7) > recurEndDate)
+                    weekSpan = recurEndDate;
+                else
+                    weekSpan = evnt.EventDate.AddDays(7);
+                for (DateTime d = taskDate; d < weekSpan; d = d.AddDays(1))
                 {
-                    if (daysRecurring[(int)d.DayOfWeek])
+                    if (daysRecurring[(int)d.DayOfWeek - 1])
                     {
                         e = Clone<Event>(evnt);
                         e.EventDate = d;
@@ -179,7 +183,7 @@ namespace SoftEng.Controllers
             //});
         }
 
-        public JsonResult NewEnrollment(int id)
+        public ActionResult NewEnrollment(int id)
         {
             Class selectedClass = this.db.GetClassById(id);
             if(selectedClass == null)
@@ -193,6 +197,7 @@ namespace SoftEng.Controllers
             {
                 Name = selectedClass.Name,
                 UserId = HomeController.user.Id,
+                ClassId = id,
                 Location = selectedClass.Location,
                 EventDate = selectedClass.StartDate,
                 EventTime = selectedClass.Time,
@@ -203,18 +208,24 @@ namespace SoftEng.Controllers
                 }
             };
             Event e;
-            bool success = true;
-            DateTime weekSpan = evnt.EventDate.AddDays(7);
-            for (DateTime d = evnt.EventDate; d <= weekSpan; d = d.AddDays(1))
+            bool success = false;
+
+            DateTime weekSpan;
+            if (evnt.EventDate.AddDays(7) > selectedClass.EndDate)
+                weekSpan = selectedClass.EndDate;
+            else
+                weekSpan = evnt.EventDate.AddDays(7);
+
+            for (DateTime d = evnt.EventDate; d < weekSpan; d = d.AddDays(1))
             {
                 foreach (ClassDay cd in selectedClass.ClassDay)
                 {
-                    if ((int)d.DayOfWeek == cd.DayOfWeek)
+                    if ((int)d.DayOfWeek == cd.DayOfWeek - 1)
                     {
                         e = Clone<Event>(evnt);
                         e.EventDate = d;
-                        if(!db.AddEvent(e))
-                            success = false;
+                        if(db.AddEvent(e))
+                            success = true;
                     }
                 }
             }

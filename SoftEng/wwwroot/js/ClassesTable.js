@@ -64,3 +64,8 @@ function toggleEditClass(classId) {
         }
     });
 }
+
+function updateClass() {
+
+
+}

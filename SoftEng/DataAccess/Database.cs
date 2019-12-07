@@ -145,6 +145,43 @@ namespace SoftEng.DataAccess
             }
         }
 
+        public bool AddClass(Class _class)
+        {
+            try
+            {
+                context.Classes.Add(_class);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateClass(int classId)
+        {
+            try
+            {
+                Class _class = GetClassById(classId);
+                var query = context.Classes.Remove(_class);
+                AddClass(_class);
+                context.SaveChanges();
+                return true;
+            } catch(Exception e)
+            {
+                return false;
+            }
+
+        }
+
+        public void DeleteClass(int classId)
+        {
+            Class _class = GetClassById(classId);
+            var query = context.Classes.Remove(_class);
+            context.SaveChanges();
+        }
+
         // Get All Events Between 2 dates
         public IEnumerable<Event> GetEventsBetween(DateTime start, DateTime end)
         {

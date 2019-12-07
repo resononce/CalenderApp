@@ -8,7 +8,7 @@ namespace SoftEng.DataAccess.DataObjects
     {
         public int Id { get; set; }
         public string Day1 { get; set; }
-        //[ForeignKey("Id")]
+        [ForeignKey("Id")]
         public virtual ClassDay ClassDay{ get; set; }
     }
 }
