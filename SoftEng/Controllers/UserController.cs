@@ -124,11 +124,11 @@ namespace SoftEng.Controllers
                 Event e = Clone<Event>(evnt);
                 success = true;
                 DateTime weekSpan;
-                if (evnt.EventDate.AddDays(7) > recurEndDate)
+                if (evnt.EventDate.AddDays(6) > recurEndDate)
                     weekSpan = recurEndDate;
                 else
-                    weekSpan = evnt.EventDate.AddDays(7);
-                for (DateTime d = taskDate; d < weekSpan; d = d.AddDays(1))
+                    weekSpan = evnt.EventDate.AddDays(6);
+                for (DateTime d = taskDate; d <= weekSpan; d = d.AddDays(1))
                 {
                     if (daysRecurring[(int)d.DayOfWeek - 1])
                     {
