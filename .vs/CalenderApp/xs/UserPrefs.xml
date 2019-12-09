@@ -1,11 +1,16 @@
 ﻿<Properties StartupConfiguration="{60E0F7CD-E0FC-49B4-A206-2B3A787F81DB}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SoftEng/Controllers/AdminController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SoftEng/Controllers/UserController.cs">
     <Files>
       <File FileName="SoftEng/Views/Admin/ClassesTable.cshtml" Line="35" Column="37" />
-      <File FileName="SoftEng/Views/Admin/AddClassModal.cshtml" Line="62" Column="7" />
-      <File FileName="SoftEng/Controllers/AdminController.cs" Line="58" Column="41" />
-      <File FileName="SoftEng/wwwroot/js/ClassesTable.js" Line="30" Column="49" />
-      <File FileName="SoftEng/DataAccess/Database.cs" Line="142" Column="2" />
+      <File FileName="SoftEng/Views/Admin/AddClassModal.cshtml" Line="75" Column="72" />
+      <File FileName="SoftEng/wwwroot/js/ClassesTable.js" Line="60" Column="16" />
+      <File FileName="SoftEng/Controllers/AdminController.cs" Line="88" Column="6" />
+      <File FileName="SoftEng/DataAccess/Database.cs" Line="151" Column="43" />
+      <File FileName="SoftEng/DataAccess/DataObjects/ClassDay.cs" Line="14" Column="31" />
+      <File FileName="SoftEng/DataAccess/DataObjects/Day.cs" Line="11" Column="11" />
+      <File FileName="SoftEng/DataAccess/DataObjects/Class.cs" Line="9" Column="9" />
+      <File FileName="SoftEng/wwwroot/js/AddTask.js" Line="1" Column="1" />
+      <File FileName="SoftEng/Controllers/UserController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,7 +21,7 @@
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
               <Node name="Controllers" expanded="True">
-                <Node name="AdminController.cs" selected="True" />
+                <Node name="UserController.cs" selected="True" />
               </Node>
               <Node name="DataAccess" expanded="True">
                 <Node name="DataObjects" expanded="True" />
@@ -42,7 +47,12 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../../../SoftEng/Controllers/AdminController.cs" line="50" offsetX="-1" offsetY="-1" expression="class_.ClassDay" liveUpdate="False" />
+    <Watch file="../../../SoftEng/Controllers/AdminController.cs" line="50" offsetX="-1" offsetY="-1" expression="class_" liveUpdate="False" />
+    <Watch file="../../../SoftEng/Controllers/AdminController.cs" line="52" offsetX="-1" offsetY="-1" expression="days" liveUpdate="False" />
+    <Watch file="../../../SoftEng/Controllers/AdminController.cs" line="50" offsetX="-1" offsetY="-1" expression="class_" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
   <MonoDevelop.Ide.ItemProperties.SoftEng PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

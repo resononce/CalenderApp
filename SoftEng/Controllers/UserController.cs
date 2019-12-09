@@ -124,6 +124,7 @@ namespace SoftEng.Controllers
             string endTimeStr, string taskDateStr, bool recurring,
             Dictionary<int, bool> daysRecurring, string recurringEndDateStr)
         {
+
             bool success = false;
             TimeSpan time = TimeSpan.Parse(endTimeStr) - TimeSpan.Parse(startTimeStr);
             DateTime taskDate = DateTime.Parse(taskDateStr);
@@ -149,23 +150,25 @@ namespace SoftEng.Controllers
                     EndDate = recurEndDate
                 };
                 Event e = Clone<Event>(evnt);
-                success = db.AddEvent(e);
-                if (success)
+                success = true;
+                DateTime weekSpan;
+                if (evnt.EventDate.AddDays(6) > recurEndDate)
+                    weekSpan = recurEndDate;
+                else
+                    weekSpan = evnt.EventDate.AddDays(6);
+                for (DateTime d = taskDate; d <= weekSpan; d = d.AddDays(1))
                 {
-                    for (DateTime d = taskDate; d <= recurEndDate; d = d.AddDays(1))
+                    if (daysRecurring[(int)d.DayOfWeek - 1])
                     {
-                        if (daysRecurring[(int)d.DayOfWeek])
-                        {
-                            e = Clone<Event>(evnt);
-                            e.EventDate = d;
-                            db.AddEvent(e);
-                        }
+                        e = Clone<Event>(evnt);
+                        e.EventDate = d;
+                        if(!db.AddEvent(e))
+                            success = false;
                     }
                 }
             }
             else
                 success = db.AddEvent(evnt);
-
             return Json(new
             {
                 status = success,
@@ -208,7 +211,7 @@ namespace SoftEng.Controllers
             //});
         }
 
-        public JsonResult NewEnrollment(int id)
+        public ActionResult NewEnrollment(int id)
         {
             Class selectedClass = this.db.GetClassById(id);
             if(selectedClass == null)
@@ -222,6 +225,7 @@ namespace SoftEng.Controllers
             {
                 Name = selectedClass.Name,
                 UserId = HomeController.user.Id,
+                ClassId = id,
                 Location = selectedClass.Location,
                 EventDate = selectedClass.StartDate,
                 EventTime = selectedClass.Time,
@@ -232,17 +236,24 @@ namespace SoftEng.Controllers
                 }
             };
             Event e;
-            bool success = true;
-            for (DateTime d = evnt.EventDate; d <= evnt.Recurrence.EndDate; d = d.AddDays(1))
+            bool success = false;
+
+            DateTime weekSpan;
+            if (evnt.EventDate.AddDays(6) > selectedClass.EndDate)
+                weekSpan = selectedClass.EndDate;
+            else
+                weekSpan = evnt.EventDate.AddDays(6);
+
+            for (DateTime d = evnt.EventDate; d <= weekSpan; d = d.AddDays(1))
             {
                 foreach (ClassDay cd in selectedClass.ClassDay)
                 {
-                    if ((int)d.DayOfWeek == cd.DayOfWeek)
+                    if ((int)d.DayOfWeek == cd.DayOfWeek - 1)
                     {
                         e = Clone<Event>(evnt);
                         e.EventDate = d;
-                        if(!db.AddEvent(e))
-                            success = false;
+                        if(db.AddEvent(e))
+                            success = true;
                     }
                 }
             }

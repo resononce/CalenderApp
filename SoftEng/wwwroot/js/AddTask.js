@@ -10,19 +10,18 @@ function addTask() {
     var endTime = $('#endTime').val().toString();
     var taskDate = new Date($('#taskDate').val()).toISOString();
     var recurring = $('#recurringCheck').is(":checked");
-    var daysRecurring, recurringEndDate;
-    if (recurring) {
-        daysRecurring = {
-            0 : $('#sunChkBox').is(':checked'),
-            1 : $('#monChkBox').is(':checked'),
-            2 : $('#tueChkBox').is(':checked'),
-            3 : $('#wedChkBox').is(':checked'),
-            4 : $('#thrChkBox').is(':checked'),
-            5 : $('#friChkBox').is(':checked'),
-            6 : $('#satChkBox').is(':checked')
-        }
-        recurringEndDate = new Date($('#recurringEndDate').val()).toISOString();
+    var recurringEndDate = taskName;
+    var daysRecurring = {
+        0: $('#sunChkBox').is(':checked'),
+        1: $('#monChkBox').is(':checked'),
+        2: $('#tueChkBox').is(':checked'),
+        3: $('#wedChkBox').is(':checked'),
+        4: $('#thrChkBox').is(':checked'),
+        5: $('#friChkBox').is(':checked'),
+        6: $('#satChkBox').is(':checked')
     }
+    if (recurring)
+        recurringEndDate = new Date($('#recurringEndDate').val()).toISOString();
     if (taskName.length === 0)
         error += "Must input task name\n";
     if (startTime.length === 0)
@@ -58,8 +57,9 @@ function addTask() {
                 daysRecurring: daysRecurring,
                 recurringEndDateStr: recurringEndDate
             },
-            error: function (result) {
-                alert("There is a Problem, Try Again! ");
+            error: function (xhr, err) {
+                var responseTitle = $(xhr.responseText).filter('title').get(0);
+                alert($(responseTitle).text() + "\n" + formatErrorMessage(xhr, err)); 
             },
             success: function (result) {
                 if (result.status == true) {
@@ -74,4 +74,23 @@ function addTask() {
     }
 
     return false;
+}
+
+function formatErrorMessage(jqXHR, exception) {
+
+    if (jqXHR.status === 0) {
+        return ('Not connected.\nPlease verify your network connection.');
+    } else if (jqXHR.status == 404) {
+        return ('The requested page not found. [404]');
+    } else if (jqXHR.status == 500) {
+        return ('Internal Server Error [500].');
+    } else if (exception === 'parsererror') {
+        return ('Requested JSON parse failed.');
+    } else if (exception === 'timeout') {
+        return ('Time out error.');
+    } else if (exception === 'abort') {
+        return ('Ajax request aborted.');
+    } else {
+        return ('Uncaught Error.\n' + jqXHR.responseText);
+    }
 }

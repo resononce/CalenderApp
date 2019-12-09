@@ -53,6 +53,11 @@ namespace SoftEng.DataAccess
             return query;
         }
 
+        internal object GetEventsByClassId()
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Event> GetUserEvents(User user)
         {
             //var query = context.Users.Include(e => e.Events)
@@ -140,12 +145,56 @@ namespace SoftEng.DataAccess
             }
         }
 
+        public bool AddClass(Class _class)
+        {
+            try
+            {
+                context.Classes.Add(_class);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateClass(int classId)
+        {
+            try
+            {
+                Class _class = GetClassById(classId);
+                var query = context.Classes.Remove(_class);
+                AddClass(_class);
+                context.SaveChanges();
+                return true;
+            } catch(Exception e)
+            {
+                return false;
+            }
+
+        }
+
+        public void DeleteClass(int classId)
+        {
+            Class _class = GetClassById(classId);
+            var query = context.Classes.Remove(_class);
+            context.SaveChanges();
+        }
+
         // Get All Events Between 2 dates
         public IEnumerable<Event> GetEventsBetween(DateTime start, DateTime end)
         {
             var query = context.Events.Where( c => c.EventDate >= start)
                                        .Where( c => c.EventDate <= end);
             return query;
+        }
+
+        // Get Events by classId
+        public Event GetEventsByClassId(int classId)
+        {
+            var query = context.Events.Where(c => c.ClassId == classId);
+            return query.FirstOrDefault();
         }
     }
 }

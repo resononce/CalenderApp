@@ -60,7 +60,7 @@ namespace SoftEng.DataAccess.DataObjects
             {
                 entity.ToTable("ClassDay", "team7");
                 entity.HasOne(e => e.Class).WithMany(e => e.ClassDay);
-                entity.HasOne(e => e.Day).WithOne(e => e.ClassDay);
+                entity.HasOne(e => e.Day).WithMany(e => e.ClassDay);
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -86,7 +86,7 @@ namespace SoftEng.DataAccess.DataObjects
             modelBuilder.Entity<Day>(entity =>
             {
                 entity.ToTable("Day", "team7");
-                entity.HasOne(e => e.ClassDay).WithOne(e => e.Day);
+                entity.HasMany(e => e.ClassDay).WithOne(e => e.Day);
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
                 entity.Property(e => e.Day1)
