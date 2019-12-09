@@ -13,8 +13,12 @@
         {
             <li><strong><span>@(e.Name)</span></strong></li>
             <ul>
+                @if (e.Location != null || e.Location != "")
+                {
                 <li>Location: @(e.Location)</li>
+                }
                 <li>Date: @(e.EventDate.ToShortDateString())</li>
+                <li>Time: @(e.EventTime.ToString())</li>
             </ul>
         }
     </ul>

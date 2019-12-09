@@ -146,7 +146,7 @@ namespace SoftEng.Controllers
         {
 
             bool success = false;
-            TimeSpan time = TimeSpan.Parse(endTimeStr) - TimeSpan.Parse(startTimeStr);
+            TimeSpan time = TimeSpan.Parse(startTimeStr);
             DateTime taskDate = DateTime.Parse(taskDateStr);
             taskDate = taskDate.AddDays(1);
 
