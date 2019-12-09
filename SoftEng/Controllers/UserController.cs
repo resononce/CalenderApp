@@ -148,6 +148,7 @@ namespace SoftEng.Controllers
             bool success = false;
             TimeSpan time = TimeSpan.Parse(endTimeStr) - TimeSpan.Parse(startTimeStr);
             DateTime taskDate = DateTime.Parse(taskDateStr);
+            taskDate = taskDate.AddDays(1);
 
             Event evnt = new Event
             {
@@ -178,7 +179,7 @@ namespace SoftEng.Controllers
                     weekSpan = evnt.EventDate.AddDays(6);
                 for (DateTime d = taskDate; d <= weekSpan; d = d.AddDays(1))
                 {
-                    if (daysRecurring[(int)d.DayOfWeek - 1])
+                    if (daysRecurring[(int)d.DayOfWeek])
                     {
                         e = Clone<Event>(evnt);
                         e.EventDate = d;
