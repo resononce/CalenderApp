@@ -45,40 +45,68 @@ namespace SoftEng.Controllers
 
         public IActionResult WeeklyView()
         {
-            return View();
+            if (HomeController.user != null && HomeController.user.IsAdmin == 0)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         public IActionResult CompareSchedules()
         {
-            return View();
+            if (HomeController.user != null && HomeController.user.IsAdmin == 0)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         public IActionResult Enroll()
         {
-            var classList = db.GetAllClasses().ToList();
-            //Select(class_ => new Class
-            //{
-            //    Id = class_.Id,
-            //    Name = class_.Name,
-            //    Location = class_.Location,
-            //    StartDate = class_.StartDate,
-            //    EndDate = class_.EndDate,
-            //    Time = class_.Time,
-            //    ClassDay = class_.ClassDay
-            //});
-
-            ClassListModel model = new ClassListModel
+            if (HomeController.user != null && HomeController.user.IsAdmin == 0)
             {
-                ClassList = classList
-            };
+                var classList = db.GetAllClasses().ToList();
+                //Select(class_ => new Class
+                //{
+                //    Id = class_.Id,
+                //    Name = class_.Name,
+                //    Location = class_.Location,
+                //    StartDate = class_.StartDate,
+                //    EndDate = class_.EndDate,
+                //    Time = class_.Time,
+                //    ClassDay = class_.ClassDay
+                //});
 
-            //TODO pass in list of classes
-            return View(model);
+                ClassListModel model = new ClassListModel
+                {
+                    ClassList = classList
+                };
+
+                //TODO pass in list of classes
+                return View(model);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         public IActionResult AddTask()
         {
-            return View();
+            if (HomeController.user != null && HomeController.user.IsAdmin == 0)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         public ActionResult RequestWeekly(DateTime start, DateTime end)

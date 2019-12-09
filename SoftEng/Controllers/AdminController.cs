@@ -23,12 +23,21 @@ namespace SoftEng.Controllers
         // GET: /<controller>/
         public IActionResult Home()
         {
-            return View();
+            if (HomeController.user != null && HomeController.user.IsAdmin == 1)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         public IActionResult ClassesTable()
         {
-            var classList = db.GetAllClasses().
+            if (HomeController.user != null && HomeController.user.IsAdmin == 1)
+            {
+                var classList = db.GetAllClasses().
                 Select(class_ => new Class
                 {
                     Id = class_.Id,
@@ -39,11 +48,16 @@ namespace SoftEng.Controllers
                     Time = class_.Time
                 });
 
-            ClassListModel model = new ClassListModel
+                ClassListModel model = new ClassListModel
+                {
+                    ClassList = classList
+                };
+                return View(model);
+            }
+            else
             {
-                ClassList = classList
-            };
-            return View(model);
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         public JsonResult EditClass(int id)
