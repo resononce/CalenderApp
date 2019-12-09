@@ -45,7 +45,14 @@ namespace SoftEng.Controllers
 
         public IActionResult WeeklyView()
         {
-            return View();
+            if (HomeController.user != null && HomeController.user.IsAdmin == 0)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         public IActionResult CompareSchedules()
@@ -83,13 +90,33 @@ namespace SoftEng.Controllers
 
         public ActionResult RequestWeekly(DateTime start, DateTime end)
         {
-            db.GetEventsBetween(start, end);
+            var result = db.GetEventsBetween(start, end);
+            List<SimpleEventModel> simpleEvents = new List<SimpleEventModel>();
+            foreach (Event x in result)
+            {
+                SimpleEventModel temp = new SimpleEventModel();
+                temp.name = x.Name;
+                temp.day = (int)x.EventDate.DayOfWeek;
+                if (x.Class != null)
+                {
+                    temp.timeEnd = x.EventTime.Hours + x.Class.Time.Hours;
+                    temp.time = x.EventTime.Hours;
+                }
+                else
+                {
+                    temp.time = x.EventTime.Hours;
+                    temp.timeEnd = x.EventTime.Hours;
+                }
+                
+                simpleEvents.Add(temp);
+            }
             //TO DO
             return Json(new
             {
-                status = false,
-                message = "Task failed successfully!"
+                status = true,
+                simpleEvents
             });
+
         }
 
         public ActionResult AddNewTask(string taskName, string startTimeStr,
