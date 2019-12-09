@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using SoftEng.DataAccess;
 using SoftEng.DataAccess.DataObjects;
 using SoftEng.Models;
+using Newtonsoft.Json;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -46,6 +47,14 @@ namespace SoftEng.Controllers
             return View(model);
         }
 
+        public static T Clone<T>(T source)
+        {
+            var serialized = JsonConvert.SerializeObject(source);
+            return JsonConvert.DeserializeObject<T>(serialized);
+        }
+
+
+
         public JsonResult AddNewClass(string name, int id, string location, string startDateStr, 
                             string endDateStr, Dictionary<int, bool> days,
                             string startTime, string endTime)
@@ -68,7 +77,46 @@ namespace SoftEng.Controllers
                 ClassDay = classDays,
                 Time = TimeSpan.Parse(endTime) - TimeSpan.Parse(startTime),
             };
+
             bool success = db.AddClass(_class);
+            
+            //UserController.NewEnrollment(id);
+            Event evnt = new Event
+            {
+                Name = _class.Name,
+                UserId = HomeController.user.Id,
+                ClassId = _class.Id,
+                Location = _class.Location,
+                EventDate = _class.StartDate,
+                EventTime = _class.Time,
+                Recurrence = new Recurrence
+                {
+                    EndDate = _class.EndDate,
+                    StartDate = _class.StartDate
+                }
+            };
+            Event e;
+
+            DateTime weekSpan;
+            if (evnt.EventDate.AddDays(6) > _class.EndDate)
+                weekSpan = _class.EndDate;
+            else
+                weekSpan = evnt.EventDate.AddDays(6);
+
+            for (DateTime d = evnt.EventDate; d <= weekSpan; d = d.AddDays(1))
+            {
+                foreach (ClassDay cd in _class.ClassDay)
+                {
+                    if ((int)d.DayOfWeek == cd.DayOfWeek - 1)
+                    {
+                        e = Clone<Event>(evnt);
+                        e.EventDate = d;
+                        if (db.AddEvent(e))
+                            success = true;
+                    }
+                }
+            }
+            //
             return Json(new
             {
                 status = success,
