@@ -1,12 +1,14 @@
-﻿@{
+@using SoftEng.DataAccess.DataObjects;
+@{
     ViewData["Title"] = "User Weekly View";
 }
+
 <script type="text/javascript" src="~/js/WeeklyView.js"></script>
 <script>
     var fullUrl = '@Url.Content("~")';
 </script>
 
-<partial name="UserNavBar"/>
+<partial name="UserNavBar" />
 
 <div align="center">
     <h2>Weekly View</h2>
@@ -16,260 +18,262 @@
     <span id="startDate"></span>-<span id="endDate"></span>
     <button id="forwardWeek" onclick="forward()">>></button>
 </div>
+
 <div class="table-responsive">
     <table class="table table-bordered">
         <thead>
-			<tr>
+            <tr>
                 <th class="center">Hour</th>
-				<th>Sunday</th>
-				<th>Monday</th>
-				<th>Tuesday</th>
-				<th>Wednesday</th>
-				<th>Thursday</th>
-				<th>Friday</th>
-				<th>Saturday</th>
-			</tr>
-		</thead>
+                <th>Sunday</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+            </tr>
+        </thead>
         <tbody>
-            <tr>
+            <tr id="12am">
                 <td align="right">12:00AM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
+
             </tr>
-            <tr>
+            <tr id="1am">
                 <td align="right">1:00AM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="2am">
                 <td align="right">2:00AM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="3am">
                 <td align="right">3:00AM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="4am">
                 <td align="right">4:00AM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="5am">
                 <td align="right">5:00AM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="6am">
                 <td align="right">6:00AM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="7am">
                 <td align="right">7:00AM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="8am">
                 <td align="right">8:00AM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="9am">
                 <td align="right">9:00AM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="10am">
                 <td align="right">10:00AM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="11am">
                 <td align="right">11:00AM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="12pm">
                 <td align="right">12:00PM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="1pm">
                 <td align="right">1:00PM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="2pm">
                 <td align="right">2:00PM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="3pm">
                 <td align="right">3:00PM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="4pm">
                 <td align="right">4:00PM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="5pm">
                 <td align="right">5:00PM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="6pm">
                 <td align="right">6:00PM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="7pm">
                 <td align="right">7:00PM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="8pm">
                 <td align="right">8:00PM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="9pm">
                 <td align="right">9:00PM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="10pm">
                 <td align="right">10:00PM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
-            <tr>
+            <tr id="11pm">
                 <td align="right">11:00PM</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="s"></td>
+                <td id="m"></td>
+                <td id="t"></td>
+                <td id="w"></td>
+                <td id="th"></td>
+                <td id="f"></td>
+                <td id="sa"></td>
             </tr>
         </tbody>
     </table>
