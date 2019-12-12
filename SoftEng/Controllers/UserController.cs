@@ -111,7 +111,9 @@ namespace SoftEng.Controllers
 
         public ActionResult RequestWeekly(DateTime start, DateTime end)
         {
-            var result = db.GetEventsBetween(start, end);
+            var result = db.GetEventsBetween(start, end, HomeController.user.Id);
+            var classResult = db.GetClassesBetween(start, end, HomeController.user.Id);
+            var recurResults = db.GetRecurringEventsBetween(start, end, HomeController.user.Id);
             List<SimpleEventModel> simpleEvents = new List<SimpleEventModel>();
             foreach (Event x in result)
             {
@@ -131,6 +133,42 @@ namespace SoftEng.Controllers
                 
                 simpleEvents.Add(temp);
             }
+            foreach (Event x in classResult)
+            {
+                SimpleEventModel temp = new SimpleEventModel();
+                temp.name = x.Name;
+                temp.day = (int)x.EventDate.DayOfWeek;
+                if (x.Class != null)
+                {
+                    temp.timeEnd = x.EventTime.Hours + x.Class.Time.Hours;
+                    temp.time = x.EventTime.Hours;
+                }
+                else
+                {
+                    temp.time = x.EventTime.Hours;
+                    temp.timeEnd = x.EventTime.Hours;
+                }
+
+                simpleEvents.Add(temp);
+            }
+            foreach (Event x in recurResults)
+            {
+                SimpleEventModel temp = new SimpleEventModel();
+                temp.name = x.Name;
+                temp.day = (int)x.EventDate.DayOfWeek;
+                if (x.Class != null)
+                {
+                    temp.timeEnd = x.EventTime.Hours + x.Class.Time.Hours;
+                    temp.time = x.EventTime.Hours;
+                }
+                else
+                {
+                    temp.time = x.EventTime.Hours;
+                    temp.timeEnd = x.EventTime.Hours;
+                }
+
+                simpleEvents.Add(temp);
+            }
             //TO DO
             return Json(new
             {
@@ -139,6 +177,7 @@ namespace SoftEng.Controllers
             });
 
         }
+
 
         public ActionResult AddNewTask(string taskName, string startTimeStr,
             string endTimeStr, string taskDateStr, bool recurring,

@@ -186,10 +186,36 @@ namespace SoftEng.DataAccess
         }
 
         // Get All Events Between 2 dates
-        public IEnumerable<Event> GetEventsBetween(DateTime start, DateTime end)
+        public IEnumerable<Event> GetEventsBetween(DateTime start, DateTime end, int userId)
         {
             var query = context.Events.Where( c => c.EventDate >= start)
-                                       .Where( c => c.EventDate <= end);
+                                       .Where( c => c.EventDate <= end)
+                                       .Where( c => c.UserId == userId)
+                                       .Where( c => c.ClassId == null)
+                                       .Where( c => c.RecurrenceId == null);
+            return query;
+        }
+
+        // Get All Events Between 2 dates
+        public IEnumerable<Event> GetClassesBetween(DateTime start, DateTime end, int userId)
+        {
+            var query = context.Events.Include(c => c.Class)
+                                        .Where(c => c.ClassId != null)
+                                        .Where(c => c.UserId == userId)
+                                        .Where(c => (c.Class.StartDate <= start && c.Class.EndDate >= start) ||
+                                                    (c.Class.EndDate >= end && c.Class.StartDate <= end));
+            return query;
+        }
+
+        // Get All Events Between 2 dates
+        public IEnumerable<Event> GetRecurringEventsBetween(DateTime start, DateTime end, int userId)
+        {
+            var query = context.Events.Include(c => c.Recurrence)
+                                        .Where(c => c.RecurrenceId != null)
+                                        .Where(c => c.UserId == userId)
+                                        .Where(c => c.ClassId == null)
+                                        .Where(c => (c.Recurrence.StartDate <= start && c.Recurrence.EndDate >= start) ||
+                                                    (c.Recurrence.EndDate >= end && c.Recurrence.StartDate <= end));
             return query;
         }
 
