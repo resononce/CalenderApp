@@ -26,7 +26,7 @@
                 }
                 <li>Date: @(e.EventDate.ToShortDateString())</li>
                 <li>Time: @(e.EventTime.ToString())</li>
-                    Complete <input type="checkbox" value="@e.Id" onclick="progress()">
+                    Complete <input type="checkbox" id="@e.Id" value="@e.Id" onclick="progress(@e.Id)" autocomplete="off">
             </ul>
         }
     </ul>

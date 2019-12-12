@@ -1,21 +1,10 @@
 ﻿<Properties StartupConfiguration="{60E0F7CD-E0FC-49B4-A206-2B3A787F81DB}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SoftEng/wwwroot/js/UserHome.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SoftEng/wwwroot/js/ClassesTable.js">
     <Files>
-      <File FileName="SoftEng/Views/Admin/ClassesTable.cshtml" Line="46" Column="35" />
-      <File FileName="SoftEng/Views/Admin/AddClassModal.cshtml" />
-      <File FileName="SoftEng/wwwroot/js/ClassesTable.js" />
-      <File FileName="SoftEng/Controllers/AdminController.cs" />
-      <File FileName="SoftEng/DataAccess/Database.cs" />
-      <File FileName="SoftEng/DataAccess/DataObjects/ClassDay.cs" Line="14" Column="31" />
-      <File FileName="SoftEng/DataAccess/DataObjects/Day.cs" />
-      <File FileName="SoftEng/DataAccess/DataObjects/Class.cs" />
-      <File FileName="SoftEng/wwwroot/js/AddTask.js" />
-      <File FileName="SoftEng/Controllers/UserController.cs" />
-      <File FileName="SoftEng/Views/User/Enroll.cshtml" />
-      <File FileName="SoftEng/DataAccess/DataObjects/team7Context.cs" />
-      <File FileName="SoftEng/Views/User/Home.cshtml" Line="31" Column="29" />
-      <File FileName="SoftEng/Models/UserHomeModel.cs" Line="1" Column="1" />
-      <File FileName="SoftEng/wwwroot/js/UserHome.js" Line="9" Column="4" />
+      <File FileName="SoftEng/wwwroot/js/UserHome.js" Line="1" Column="24" />
+      <File FileName="SoftEng/Controllers/AdminController.cs" Line="105" Column="54" />
+      <File FileName="SoftEng/wwwroot/js/ClassesTable.js" Line="1" Column="1" />
+      <File FileName="SoftEng/DataAccess/Database.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -42,7 +31,7 @@
                   <Node name="site.css" expanded="True" />
                 </Node>
                 <Node name="js" expanded="True">
-                  <Node name="UserHome.js" selected="True" />
+                  <Node name="ClassesTable.js" selected="True" />
                 </Node>
               </Node>
               <Node name="appsettings.json" expanded="True" />
@@ -61,7 +50,10 @@
   <MonoDevelop.Ide.ItemProperties.SoftEng PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/ChengXiong/Documents/UWOClasses/ComputerScience/Software Engineer I/Project/CalendarApp/CalenderApp/SoftEng/Controllers/AdminController.cs" relfile="SoftEng/Controllers/AdminController.cs" line="174" column="1" />
+      <Breakpoint file="/Users/ChengXiong/Documents/UWOClasses/ComputerScience/Software Engineer I/Project/CalendarApp/CalenderApp/SoftEng/Controllers/AdminController.cs" relfile="SoftEng/Controllers/AdminController.cs" line="114" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

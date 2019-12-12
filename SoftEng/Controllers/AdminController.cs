@@ -102,7 +102,7 @@ namespace SoftEng.Controllers
                 ClassId = _class.Id,
                 Location = _class.Location,
                 EventDate = _class.StartDate,
-                EventTime = _class.Time,
+                EventTime = TimeSpan.Parse(startTime),
                 Recurrence = new Recurrence
                 {
                     EndDate = _class.EndDate,
