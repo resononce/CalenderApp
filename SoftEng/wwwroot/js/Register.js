@@ -40,7 +40,7 @@ function Register() {
             },
             success: function (result) {
                 if (result.status == true) {
-                    window.location.href = fullUrl + "Home/Main";
+                    window.location.href = fullUrl + "User/Home";
                 }
                 else {
                     error = result.message;
