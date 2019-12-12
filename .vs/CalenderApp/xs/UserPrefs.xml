@@ -1,16 +1,21 @@
 ﻿<Properties StartupConfiguration="{60E0F7CD-E0FC-49B4-A206-2B3A787F81DB}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SoftEng/Controllers/UserController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SoftEng/wwwroot/js/UserHome.js">
     <Files>
-      <File FileName="SoftEng/Views/Admin/ClassesTable.cshtml" Line="35" Column="37" />
-      <File FileName="SoftEng/Views/Admin/AddClassModal.cshtml" Line="75" Column="72" />
-      <File FileName="SoftEng/wwwroot/js/ClassesTable.js" Line="60" Column="16" />
-      <File FileName="SoftEng/Controllers/AdminController.cs" Line="88" Column="6" />
-      <File FileName="SoftEng/DataAccess/Database.cs" Line="151" Column="43" />
+      <File FileName="SoftEng/Views/Admin/ClassesTable.cshtml" Line="46" Column="35" />
+      <File FileName="SoftEng/Views/Admin/AddClassModal.cshtml" />
+      <File FileName="SoftEng/wwwroot/js/ClassesTable.js" />
+      <File FileName="SoftEng/Controllers/AdminController.cs" />
+      <File FileName="SoftEng/DataAccess/Database.cs" />
       <File FileName="SoftEng/DataAccess/DataObjects/ClassDay.cs" Line="14" Column="31" />
-      <File FileName="SoftEng/DataAccess/DataObjects/Day.cs" Line="11" Column="11" />
-      <File FileName="SoftEng/DataAccess/DataObjects/Class.cs" Line="9" Column="9" />
-      <File FileName="SoftEng/wwwroot/js/AddTask.js" Line="1" Column="1" />
-      <File FileName="SoftEng/Controllers/UserController.cs" Line="1" Column="1" />
+      <File FileName="SoftEng/DataAccess/DataObjects/Day.cs" />
+      <File FileName="SoftEng/DataAccess/DataObjects/Class.cs" />
+      <File FileName="SoftEng/wwwroot/js/AddTask.js" />
+      <File FileName="SoftEng/Controllers/UserController.cs" />
+      <File FileName="SoftEng/Views/User/Enroll.cshtml" />
+      <File FileName="SoftEng/DataAccess/DataObjects/team7Context.cs" />
+      <File FileName="SoftEng/Views/User/Home.cshtml" Line="31" Column="29" />
+      <File FileName="SoftEng/Models/UserHomeModel.cs" Line="1" Column="1" />
+      <File FileName="SoftEng/wwwroot/js/UserHome.js" Line="9" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,9 +25,7 @@
               <Node name="Dependencies" expanded="True">
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
-              <Node name="Controllers" expanded="True">
-                <Node name="UserController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="DataAccess" expanded="True">
                 <Node name="DataObjects" expanded="True" />
               </Node>
@@ -38,7 +41,9 @@
                 <Node name="css" expanded="True">
                   <Node name="site.css" expanded="True" />
                 </Node>
-                <Node name="js" expanded="True" />
+                <Node name="js" expanded="True">
+                  <Node name="UserHome.js" selected="True" />
+                </Node>
               </Node>
               <Node name="appsettings.json" expanded="True" />
             </Node>
