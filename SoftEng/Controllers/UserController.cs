@@ -146,7 +146,7 @@ namespace SoftEng.Controllers
                 else
                 {
                     temp.time = x.EventTime.Hours;
-                    temp.timeEnd = x.EventTime.Hours;
+                    temp.timeEnd = x.Task.EventTime.Hours;
                 }
 
                 simpleEvents.Add(temp);
@@ -164,7 +164,7 @@ namespace SoftEng.Controllers
                 else
                 {
                     temp.time = x.EventTime.Hours;
-                    temp.timeEnd = x.EventTime.Hours;
+                    temp.timeEnd = x.Task.EventTime.Hours;
                 }
 
                 simpleEvents.Add(temp);
@@ -186,6 +186,7 @@ namespace SoftEng.Controllers
 
             bool success = false;
             TimeSpan time = TimeSpan.Parse(startTimeStr);
+            TimeSpan timeEnd = TimeSpan.Parse(endTimeStr);
             DateTime taskDate = DateTime.Parse(taskDateStr);
             taskDate = taskDate.AddDays(1);
 
@@ -198,7 +199,8 @@ namespace SoftEng.Controllers
                 EventTime = time,
                 Task = new Task
                 {
-                    IsComplete = 0
+                    IsComplete = 0,
+                    EventTime = timeEnd
                 }
             };
             if (recurring)

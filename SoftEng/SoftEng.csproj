@@ -21,7 +21,4 @@
         <HintPath>..\..\Visual Studio 2019\Projects\Lab2\Lab2\v4.5\MySql.Data.dll</HintPath>
         </Reference>
     </ItemGroup>
-    <ItemGroup>
-      <Content Remove="wwwroot\js\Register.js" />
-    </ItemGroup>
 </Project>

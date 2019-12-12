@@ -34,24 +34,14 @@ function resetWeek() {
 }
 
 function getEventsByTime() {
-    var i = 0;
-    while (i <= 23) {
-        setDay(i, i, 's', "", "");
-        setDay(i, i, 'm', "", "");
-        setDay(i, i, 't', "", "");
-        setDay(i, i, 'w', "", "");
-        setDay(i, i, 'th', "", "");
-        setDay(i, i, 'f', "", "");
-        setDay(i, i, 'sa', "", "");
-        i++;
-    }
     requestWeek(startDate.toISOString(), endDate.toISOString());
 }
 
 function setDay(value, timeEnd, day, jClass, name) {
+    debugger;
     if (value <= 0 && 0 <= timeEnd) {
         $('#12am > #' + day).removeClass();
-        $('#12am > #' + day).addClass(jClass);
+        $('#12am > #' + day).addClass(jClass)
         $('#12am > #' + day).append("<p>" + name + "</p>");
     } else if (value <= 1 && 1 <= timeEnd) {
         $('#1am > #' + day).removeClass();
