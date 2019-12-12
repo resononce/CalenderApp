@@ -158,13 +158,13 @@ namespace SoftEng.Controllers
                 temp.day = (int)x.EventDate.DayOfWeek;
                 if (x.Class != null)
                 {
-                    temp.timeEnd = x.Task.EventTime.Hours + x.Class.Time.Hours;
+                    temp.timeEnd = x.Class.Time.Hours;
                     temp.time = x.EventTime.Hours;
                 }
                 else
                 {
+                    temp.timeEnd = x.Class.Time.Hours;
                     temp.time = x.EventTime.Hours;
-                    temp.timeEnd = x.Task.EventTime.Hours;
                 }
 
                 simpleEvents.Add(temp);
