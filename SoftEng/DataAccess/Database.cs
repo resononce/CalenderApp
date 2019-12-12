@@ -63,7 +63,7 @@ namespace SoftEng.DataAccess
             //var query = context.Users.Include(e => e.Events)
             //                        .Where(e => e.Id == user.Id)
             //                        .FirstOrDefault();
-            var query = context.Events.Where(e => e.UserId == user.Id).OrderBy(e => e.EventDate).ThenBy(e => e.EventTime);
+            var query = context.Events.Where(e => e.UserId == user.Id).Include(e => e.Task).OrderBy(e => e.EventDate).ThenBy(e => e.EventTime);
             return query;
         }
 
@@ -75,6 +75,7 @@ namespace SoftEng.DataAccess
             var query = context.Events.Where(e => e.UserId == user.Id)
                                       .Where(e => e.EventDate >= startDate)
                                       .Where(e => e.EventDate <= endDate)
+                                      .Include(e => e.Task)
                                       .OrderBy(e => e.EventDate).ThenBy(e => e.EventTime);
             return query;
         }
@@ -192,6 +193,7 @@ namespace SoftEng.DataAccess
                                        .Where( c => c.EventDate <= end)
                                        .Where( c => c.UserId == userId)
                                        .Where( c => c.ClassId == null)
+                                       .Include(e => e.Task)
                                        .Where( c => c.RecurrenceId == null);
             return query;
         }
@@ -214,6 +216,7 @@ namespace SoftEng.DataAccess
                                         .Where(c => c.RecurrenceId != null)
                                         .Where(c => c.UserId == userId)
                                         .Where(c => c.ClassId == null)
+                                        .Include(e => e.Task)  
                                         .Where(c => (c.Recurrence.StartDate <= start && c.Recurrence.EndDate >= start) ||
                                                     (c.Recurrence.EndDate >= end && c.Recurrence.StartDate <= end));
             return query;
